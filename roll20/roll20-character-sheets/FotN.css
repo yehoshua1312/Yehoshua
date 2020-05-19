@@ -1,0 +1,174 @@
+.sheet-main {
+  display: grid;
+  width: 800px;
+  height: 900px;
+  grid-gap: 4px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr 3fr 1fr 1fr 1fr;
+  grid-template-areas:"bio stats"
+                      "skills passives"
+                      "actives actives"
+                      "gear gear"
+                      "equipment equipment"
+                      "notes notes";
+}
+
+/*----------------- GENERAL CSS ------------------*/
+input {
+    display: inline-block;
+    width: 160px;
+}
+
+input[type="number"] {
+    display: inline-block;
+    width: 500px;
+}
+
+textarea {
+    display: inline-block;
+    resize: none;
+    vertical-align: top;
+    height: 18px;
+}
+
+.sheet-section {
+    padding: 5px;
+    border-style: solid;
+}
+
+.sheet-flex-col {
+  display: flex;
+  flex-flow: row wrap;
+  /*justify-content: flex-start;*/
+}
+
+.sheet-flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.sheet-single-char {
+    width: 20px;
+}
+
+/*------------- Section-specific CSS -------------*/
+
+.sheet-bio {
+  grid-area: bio;
+  display: flex;
+  background-color: olive;
+  flex-direction: column;
+}
+
+.sheet-stats {
+  grid-area: stats;
+  background-color: orange;
+  display: grid;
+  grid-gap: 4px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.sheet-skills {
+  grid-area: skills;
+  background-color: brown;
+}
+
+.sheet-skills .sheet-skillname {
+   display: inline-block;
+   width: 83%;
+}
+
+.sheet-skills .sheet-skillrank {
+    display: inline;
+}
+
+.sheet-passives {
+  grid-area: passives;
+  background-color: green;
+}
+
+.sheet-passives .sheet-passivename {
+    display: inline-block;
+    width: 40%;
+}
+
+.sheet-passives .sheet-passivedesc {
+    display: inline-block;
+    width: 50%;
+}
+
+.sheet-actives {
+  grid-area: actives;
+  background-color: coral;
+}
+
+.sheet-actives .sheet-activename {
+    display: inline-block;
+    width: 20%;
+}
+
+.sheet-actives .sheet-pmeta {
+    display: inline-block;
+    width: 75px;
+    color: red;
+}
+
+.sheet-actives .sheet-mmeta {
+    display: inline-block;
+    width: 75px;
+    color: blue;
+}
+
+.sheet-actives .sheet-smeta {
+    display: inline-block;
+    width: 75px;
+    color: green;
+}
+
+.sheet-actives .sheet-activedesc {
+    display: inline-block;
+    width: 48%;
+}
+
+.sheet-gear {
+  grid-area: gear;
+  background-color: grey;
+}
+
+.sheet-gear .sheet-gearspace {
+    display: inline-block;
+    width: 78px;
+}
+
+.sheet-gear .sheet-geardesc {
+    display: inline-block;
+    width: 160px;
+}
+
+.sheet-gear .sheet-gearnum {
+    display: inline-block;
+    width: 45px;
+}
+
+.sheet-equipment {
+  grid-area: equipment;
+  background-color: chocolate;
+}
+
+.sheet-equipment .sheet-equipbox {
+    resize: vertical;
+    width: 90%;
+    height: 100px;
+}
+
+.sheet-notes {
+    grid-area: notes;
+    background-color: teal;
+}
+
+.sheet-notes .sheet-notebox {
+    resize: vertical;
+    width: 90%;
+    height: 100px;
+}
