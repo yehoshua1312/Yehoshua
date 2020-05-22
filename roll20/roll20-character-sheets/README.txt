@@ -18,3 +18,21 @@ Instructions:
 12) Change the name of the script to "FotN Companion.js" and press the "Save Script" button
 13) If you have any previous scripts for FotN ("wyrd" or "cleanup") you should deactivate or delete them now.
 14) You are now ready to set up your game
+15) From your game home page, press "Launch Game"
+16) In your game, make a map called "Playmats" (capitalized)
+17) Drop a number of Playmat.png tokens equal to your number of players on to the Maps & Background layer. Arrange them as convenient and resize them until they are resonably sized. The size doesn't specifically matter (just the proportions), but if they are too small the text will overlap
+18) For each playmat, edit them so that the Name is "$charName playmat" where $charName is the name of the character who will be using the playmat. That's one space and a lowercase "p" in playmat. It is a good idea to drop a textbox on the playmat with the name of the character, so you know who's it is
+19) Under Macros, make a macro called playmat with the action text "!mc move --target Playmats" and select the "In Bar" checkbox
+20) Make a macro called rejoin with the action text "!mc rejoin" and select the "In Bar" checkbox. These are the macros your players will use to switch between viewing the playmats and viewing the normal map
+21) For each character, under the Attributes & Abilities tab make two abilities called "wyrd" and "cleanup"
+22) The action text under "wyrd" should be: 
+!wyrd --@{character_name} --@{Destiny}
+23) The action text under "cleanup" should be:
+!cleanup --@{character_name}
+!cleanup --@{character_name}
+24) Yes, make sure the command is repeated twice for cleanup. Select the "Show in Macro Bar" and "Show as Token Action" checkboxes as you wish
+25) Under Decks, make a deck for each character and name that deck with the character's name (case matters)
+26) Set each of the decks to a card size of 20px X 30px (default settings are ok for everything else)
+27) Add cards equal to the number of runes the character has and upload the appropriate graphic from the images folder. <!IMPORTANT!>Upload the files from your computer, do not use files already uploaded to your roll20 assets. I don't know why images from your roll20 assets don't work, but they don't.
+28) Choose an appropriate card back and save
+29) You should now be ready to play. At a minimum, your characters will need to have the destiny field filled out on their character sheet for the wyrd program to work. Use the "Current" tab in the character sheet to keep track of conditions ()

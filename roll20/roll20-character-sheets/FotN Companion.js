@@ -41,7 +41,7 @@ on('chat:message', (msg) => {
                 //Put the card on the playmat, will stagger cards so they don't all stack on top of eachother
                 //These numbers are scaled to put the cards into the in hand area on my playmat. If you change
                 //the playmat size you will need to change them
-                playCardToTable(card.id, {left: playmat.get("left")+i*20-70, top: playmat.get("top")-110, pageid: pageID});
+                playCardToTable(card.id, {left: playmat.get("left")+i*20-0.2*playmat.get('width'), top: playmat.get("top")-0.2*playmat.get('height'), pageid: pageID});
                 //I don't know why this works, but it seems necessary to change the "controlledby" property
                 let cardObj = findObjs({
                     cardid: card.id
@@ -195,6 +195,6 @@ on('change:attribute', function(obj) {
             });
         }
     } else {
-        break;
+        return;
     }
 });
