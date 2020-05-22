@@ -1,204 +1,258 @@
-<div class="main">
-    <div class="bio">
-        <label>Player Name: <input type="text" name="attr_player_name" /></label>
-        <label>Character Name: <input type="text" name="attr_character_name" /></label>
-        <label>Archetype: <input type="text" name="attr_archtype" /></label>
+<div class="sheet-container">
+    <div class="tabs">
+        <button type="action" name="act_character" >Character</button>
+        <button type="action" name="act_current" >Current</button>
+        <button type="action" name="act_lifepath" >Lifepath</button>
     </div>
-    <div class="stats">
-        <label>Size: <input type="number" value="6" name="attr_size" /></label>
-        <label>Level: <input type="number" name="attr_level" /></label>
-        <label>Move: <input type="number" value="6" name="attr_move" /></label>
-        <label>Essence: <input type="number" name="attr_essence" /></label>
-        <label>Void Rune: <input type="text" name="attr_voidrune" class="single-char" /></label>
-        <label>Destiny: <input type="number" name="attr_destiny" /></label>
+    <input type='hidden' class='tabstoggle' name='attr_sheetTab' value='current' />
+    
+    <div class="character">
+        <div class="bio">
+            <label>Player Name: <input type="text" name="attr_player_name" /></label>
+            <label>Character Name: <input type="text" name="attr_character_name" /></label>
+            <label>Archetype: <input type="text" name="attr_archtype" /></label>
+        </div>
+        <div class="stats">
+            <label>Size: <input type="number" value="4" name="attr_size" /></label>
+            <label>Level: <input type="number" name="attr_level" /></label>
+            <label>Move: <input type="number" value="4" name="attr_move" /></label>
+            <label>Essence: <input type="number" name="attr_essence" /></label>
+            <label>Void Rune: <input type="text" name="attr_voidrune" class="single-char" /></label>
+            <label>Destiny: <input type="number" name="attr_destiny" /></label>
+        </div>
+        <div class="skills">
+            <span class="sheet-skillname">Skills:</span>
+            <span class="sheet-skillrank">Rank:</span>
+            <fieldset class="repeating_skills">
+                <input class="skillname" type="text" name="attr_skillname" />
+                <input class="skillrank" type="number" name="attr_skillrank" />
+            </fieldset>
+        </div>
+        <div class="passives">
+            <span class="passivename">Passive:</span>
+            <span class="passivedesc">Description:</span>
+            <fieldset class="repeating_passives">
+                <input class="passivename" type="text" name="attr_passivename" />
+                <textarea class="passivedesc" name="attr_passivdesc" rows=1></textarea>
+            </fieldset>
+        </div>
+        <div class="actives">
+            <span class="activename">Active:</span>
+            <span class="pmeta">PMeta:</span>
+            <span class="mmeta">MMeta:</span>
+            <span class="smeta">SMeta:</span>
+            <span class="activedesc">Description:</span>
+            <fieldset class="repeating_actives">
+        		<input class="activename" type="text" name="attr_avtivename" />
+        		<select name="attr_pmeta" class="pmeta">
+        			<option value="abate">Abate</option>
+        			<option value="absorb">Absorb</option>
+        			<option value="amplify">Amplify</option>
+        			<option value="area">Area</option>
+        			<option value="cannibalize">Cannibalize</option>
+        			<option value="combo">Combo</option>
+        			<option value="cluster">Cluster</option>
+        			<option value="deflect">Deflect</option>
+        			<option value="dodge">Dodge</option>
+        			<option value="echo">Echo</option>
+        			<option value="eldritch">Eldritch</option>
+        			<option value="expanse">Expanse</option>
+        			<option value="fortify">Fortify</option>
+        			<option value="gloom">Gloom</option>
+        			<option value="maintain">Maintain</option>
+        			<option value="multi">Multi</option>
+        			<option value="open">Open</option>
+        			<option value="permanency">Permanency</option>
+        			<option value="piercer">Piercer</option>
+        			<option value="proficiency">Proficiency</option>
+        			<option value="range">Range</option>
+        			<option value="sight">Sight</option>
+        			<option value="stutter">Stutter</option>
+        			<option value="weapon">Weapon</option>
+        		</select>
+        		<select name="attr_mmeta" class="mmeta">
+        			<option value="abate">Abate</option>
+        			<option value="absorb">Absorb</option>
+        			<option value="amplify">Amplify</option>
+        			<option value="area">Area</option>
+        			<option value="cannibalize">Cannibalize</option>
+        			<option value="combo">Combo</option>
+        			<option value="cluster">Cluster</option>
+        			<option value="deflect">Deflect</option>
+        			<option value="dodge">Dodge</option>
+        			<option value="echo">Echo</option>
+        			<option value="eldritch">Eldritch</option>
+        			<option value="expanse">Expanse</option>
+        			<option value="fortify">Fortify</option>
+        			<option value="gloom">Gloom</option>
+        			<option value="maintain">Maintain</option>
+        			<option value="multi">Multi</option>
+        			<option value="open">Open</option>
+        			<option value="permanency">Permanency</option>
+        			<option value="piercer">Piercer</option>
+        			<option value="proficiency">Proficiency</option>
+        			<option value="range">Range</option>
+        			<option value="sight">Sight</option>
+        			<option value="stutter">Stutter</option>
+        			<option value="weapon">Weapon</option>
+        		</select>
+        		<select name="attr_smeta" class="smeta">
+        			<option value="abate">Abate</option>
+        			<option value="absorb">Absorb</option>
+        			<option value="amplify">Amplify</option>
+        			<option value="area">Area</option>
+        			<option value="cannibalize">Cannibalize</option>
+        			<option value="combo">Combo</option>
+        			<option value="cluster">Cluster</option>
+        			<option value="deflect">Deflect</option>
+        			<option value="dodge">Dodge</option>
+        			<option value="echo">Echo</option>
+        			<option value="eldritch">Eldritch</option>
+        			<option value="expanse">Expanse</option>
+        			<option value="fortify">Fortify</option>
+        			<option value="gloom">Gloom</option>
+        			<option value="maintain">Maintain</option>
+        			<option value="multi">Multi</option>
+        			<option value="open">Open</option>
+        			<option value="permanency">Permanency</option>
+        			<option value="piercer">Piercer</option>
+        			<option value="proficiency">Proficiency</option>
+        			<option value="range">Range</option>
+        			<option value="sight">Sight</option>
+        			<option value="stutter">Stutter</option>
+        			<option value="weapon">Weapon</option>
+        		</select>
+        		<textarea name="attr_activedesc" class="activedesc"></textarea>
+        	</fieldset>
+        </div>
+        <div class="gear">
+            <label>
+                <span class="gearspace"></span>
+                <span class="geardesc">Description</span>
+                <span class="gearnum">Size</span>
+                <span class="gearnum">DF</span>
+                <span class="gearnum">Pierce</span>
+                <span class="gearnum">Reach</span>
+                <span class="gearnum">Parry</span>
+                <span class="gearnum">Focus</span>
+            </label>
+            <label>Weapon 1: 
+                <input type="text" name=attr_weapon1 />
+                <input type="number" name="attr_weapon1size" class="size"/>
+                <input type="number" name="attr_weapon1df" class="pdf"/>
+                <input type="number" name="attr_weapon1pierce" class="pierce"/>
+                <input type="number" name="attr_weapon1reach" class="reach"/>
+                <input type="number" name="attr_weapon1parry" class="parry"/>
+                <input type="number" name="attr_weapon1focus" class="focus"/>
+            </label>
+            <label>Weapon 2: 
+                <input type="text" name=attr_weapon2 />
+                <input type="number" name="attr_weapon1size" class="size"/>
+                <input type="number" name="attr_weapon2df" class="pdf"/>
+                <input type="number" name="attr_weapon2pierce" class="pierce"/>
+                <input type="number" name="attr_weapon2reach" class="reach"/>
+                <input type="number" name="attr_weapon2parry" class="parry"/>
+                <input type="number" name="attr_weapon2focus" class="focus"/>
+            </label>
+            <br>
+            <label>
+                <span class="gearspace"></span>
+                <span class="geardesc">Description</span>
+                <span class="gearnum">Size</span>
+                <span class="gearnum">PPF</span>
+                <span class="gearnum">MPF</span>
+                <span class="gearnum">SPF</span>
+                <span class="gearnum">Parry</span>
+                <span class="gearnum">Evade</span>
+                <span class="gearnum">Focus</span>
+            </label>
+            <label><span class="gearspace">Armor:</span>   
+                <input type="text" name=attr_armor />
+                <input type="number" name="attr_armorsize" class="size"/>
+                <input type="number" name="attr_armorppf" class="ppf"/>
+                <input type="number" name="attr_armormpf" class="mpf"/>
+                <input type="number" name="attr_armorspf" class="spf"/>
+                <input type="number" name="attr_armorparry" class="parry"/>
+                <input type="number" name="attr_armorevade" class="evade"/>
+                <input type="number" name="attr_armorfocus" class="focus"/>
+            </label>
+            <br>
+            <label>
+                <span class="gearspace"></span>
+                <span class="gearnum">PDF</span>
+                <span class="gearnum">MDF</span>
+                <span class="gearnum">SDF</span>
+                <span class="gearnum">PPF</span>
+                <span class="gearnum">MPF</span>
+                <span class="gearnum">SPF</span>
+                <span class="gearnum">Pierce</span>
+                <span class="gearnum">Parry</span>
+                <span class="gearnum">Evade</span>
+                <span class="gearnum">Focus</span>
+            </label>
+            <label><span class="gearspace">Misc:</span>   
+                <input type="number" name="attr_miscpdf" class="pdf"/>
+                <input type="number" name="attr_miscmdf" class="mdf"/>
+                <input type="number" name="attr_miscsdf" class="sdf"/>
+                <input type="number" name="attr_miscppf" class="ppf"/>
+                <input type="number" name="attr_miscmpf" class="mpf"/>
+                <input type="number" name="attr_miscspf" class="spf"/>
+                <input type="number" name="attr_miscpierce" class="pierce"/>
+                <input type="number" name="attr_miscparry" class="parry"/>
+                <input type="number" name="attr_miscevade" class="evade"/>
+                <input type="number" name="attr_miscfocus" class="focus"/>
+            </label>
+        </div>
+        <div class="equipment">
+            <label>Equipment:</label><textarea name="attr_equipment" class="equipbox"></textarea>
+        </div>
+        <div class="notes">
+            <label>Notes:</label><textarea name="attr_notes" class="notebox"></textarea>
+        </div>
     </div>
-    <div class="skills">
-        <span class="skillname">Skills:</span>
-        <span class="skillrank">Rank:</span>
-        <fieldset class="repeating_skills">
-            <input class="skillname" type="text" name="attr_skillname" />
-            <input class="skillrank" type="number" name="attr_skillrank" />
-        </fieldset>
-    </div>
-    <div class="passives">
-        <span class="passivename">Passive:</span>
-        <span class="passivedesc">Description:</span>
-        <fieldset class="repeating_passives">
-            <input class="passivename" type="text" name="attr_passivename" />
-            <textarea class="passivedesc" name="attr_passivdesc" rows=1></textarea>
-        </fieldset>
-    </div>
-    <div class="actives">
-        <span class="activename">Active:</span>
-        <span class="pmeta">PMeta:</span>
-        <span class="mmeta">MMeta:</span>
-        <span class="smeta">SMeta:</span>
-        <span class="activedesc">Description:</span>
-        <fieldset class="repeating_actives">
-    		<input class="activename" type="text" name="attr_avtivename" />
-    		<select name="attr_pmeta" class="pmeta">
-    			<option value="abate">Abate</option>
-    			<option value="absorb">Absorb</option>
-    			<option value="amplify">Amplify</option>
-    			<option value="area">Area</option>
-    			<option value="cannibalize">Cannibalize</option>
-    			<option value="combo">Combo</option>
-    			<option value="cluster">Cluster</option>
-    			<option value="deflect">Deflect</option>
-    			<option value="dodge">Dodge</option>
-    			<option value="echo">Echo</option>
-    			<option value="eldritch">Eldritch</option>
-    			<option value="expanse">Expanse</option>
-    			<option value="fortify">Fortify</option>
-    			<option value="gloom">Gloom</option>
-    			<option value="maintain">Maintain</option>
-    			<option value="multi">Multi</option>
-    			<option value="open">Open</option>
-    			<option value="permanency">Permanency</option>
-    			<option value="piercer">Piercer</option>
-    			<option value="proficiency">Proficiency</option>
-    			<option value="range">Range</option>
-    			<option value="sight">Sight</option>
-    			<option value="stutter">Stutter</option>
-    			<option value="weapon">Weapon</option>
-    		</select>
-    		<select name="attr_mmeta" class="mmeta">
-    			<option value="abate">Abate</option>
-    			<option value="absorb">Absorb</option>
-    			<option value="amplify">Amplify</option>
-    			<option value="area">Area</option>
-    			<option value="cannibalize">Cannibalize</option>
-    			<option value="combo">Combo</option>
-    			<option value="cluster">Cluster</option>
-    			<option value="deflect">Deflect</option>
-    			<option value="dodge">Dodge</option>
-    			<option value="echo">Echo</option>
-    			<option value="eldritch">Eldritch</option>
-    			<option value="expanse">Expanse</option>
-    			<option value="fortify">Fortify</option>
-    			<option value="gloom">Gloom</option>
-    			<option value="maintain">Maintain</option>
-    			<option value="multi">Multi</option>
-    			<option value="open">Open</option>
-    			<option value="permanency">Permanency</option>
-    			<option value="piercer">Piercer</option>
-    			<option value="proficiency">Proficiency</option>
-    			<option value="range">Range</option>
-    			<option value="sight">Sight</option>
-    			<option value="stutter">Stutter</option>
-    			<option value="weapon">Weapon</option>
-    		</select>
-    		<select name="attr_smeta" class="smeta">
-    			<option value="abate">Abate</option>
-    			<option value="absorb">Absorb</option>
-    			<option value="amplify">Amplify</option>
-    			<option value="area">Area</option>
-    			<option value="cannibalize">Cannibalize</option>
-    			<option value="combo">Combo</option>
-    			<option value="cluster">Cluster</option>
-    			<option value="deflect">Deflect</option>
-    			<option value="dodge">Dodge</option>
-    			<option value="echo">Echo</option>
-    			<option value="eldritch">Eldritch</option>
-    			<option value="expanse">Expanse</option>
-    			<option value="fortify">Fortify</option>
-    			<option value="gloom">Gloom</option>
-    			<option value="maintain">Maintain</option>
-    			<option value="multi">Multi</option>
-    			<option value="open">Open</option>
-    			<option value="permanency">Permanency</option>
-    			<option value="piercer">Piercer</option>
-    			<option value="proficiency">Proficiency</option>
-    			<option value="range">Range</option>
-    			<option value="sight">Sight</option>
-    			<option value="stutter">Stutter</option>
-    			<option value="weapon">Weapon</option>
-    		</select>
-    		<textarea name="attr_activedesc" class="activedesc"></textarea>
-    	</fieldset>
-    </div>
-    <div class="gear">
-        <label>
-            <span class="gearspace"></span>
-            <span class="geardesc">Description</span>
-            <span class="gearnum">Size</span>
-            <span class="gearnum">DF</span>
-            <span class="gearnum">Pierce</span>
-            <span class="gearnum">Reach</span>
-            <span class="gearnum">Parry</span>
-            <span class="gearnum">Focus</span>
-        </label>
-        <label>Weapon 1: 
-            <input type="text" name=attr_weapon1 />
-            <input type="number" name="attr_weapon1size" class="size"/>
-            <input type="number" name="attr_weapon1df" class="pdf"/>
-            <input type="number" name="attr_weapon1pierce" class="pierce"/>
-            <input type="number" name="attr_weapon1reach" class="reach"/>
-            <input type="number" name="attr_weapon1parry" class="parry"/>
-            <input type="number" name="attr_weapon1focus" class="focus"/>
-        </label>
-        <label>Weapon 2: 
-            <input type="text" name=attr_weapon2 />
-            <input type="number" name="attr_weapon1size" class="size"/>
-            <input type="number" name="attr_weapon2df" class="pdf"/>
-            <input type="number" name="attr_weapon2pierce" class="pierce"/>
-            <input type="number" name="attr_weapon2reach" class="reach"/>
-            <input type="number" name="attr_weapon2parry" class="parry"/>
-            <input type="number" name="attr_weapon2focus" class="focus"/>
-        </label>
-        <br>
-        <label>
-            <span class="gearspace"></span>
-            <span class="geardesc">Description</span>
-            <span class="gearnum">Size</span>
-            <span class="gearnum">PPF</span>
-            <span class="gearnum">MPF</span>
-            <span class="gearnum">SPF</span>
-            <span class="gearnum">Parry</span>
-            <span class="gearnum">Evade</span>
-            <span class="gearnum">Focus</span>
-        </label>
-        <label><span class="gearspace">Armor:</span>   
-            <input type="text" name=attr_armor />
-            <input type="number" name="attr_armorsize" class="size"/>
-            <input type="number" name="attr_armorppf" class="ppf"/>
-            <input type="number" name="attr_armormpf" class="mpf"/>
-            <input type="number" name="attr_armorspf" class="spf"/>
-            <input type="number" name="attr_armorparry" class="parry"/>
-            <input type="number" name="attr_armorevade" class="evade"/>
-            <input type="number" name="attr_armorfocus" class="focus"/>
-        </label>
-        <br>
-        <label>
-            <span class="gearspace"></span>
-            <span class="gearnum">PDF</span>
-            <span class="gearnum">MDF</span>
-            <span class="gearnum">SDF</span>
-            <span class="gearnum">PPF</span>
-            <span class="gearnum">MPF</span>
-            <span class="gearnum">SPF</span>
-            <span class="gearnum">Pierce</span>
-            <span class="gearnum">Parry</span>
-            <span class="gearnum">Evade</span>
-            <span class="gearnum">Focus</span>
-        </label>
-        <label><span class="gearspace">Misc:</span>   
-            <input type="number" name="attr_miscpdf" class="pdf"/>
-            <input type="number" name="attr_miscmdf" class="mdf"/>
-            <input type="number" name="attr_miscsdf" class="sdf"/>
-            <input type="number" name="attr_miscppf" class="ppf"/>
-            <input type="number" name="attr_miscmpf" class="mpf"/>
-            <input type="number" name="attr_miscspf" class="spf"/>
-            <input type="number" name="attr_miscpierce" class="pierce"/>
-            <input type="number" name="attr_miscparry" class="parry"/>
-            <input type="number" name="attr_miscevade" class="evade"/>
-            <input type="number" name="attr_miscfocus" class="focus"/>
-        </label>
-    </div>
-    <div class="equipment">
-        <label>Equipment:</label><textarea name="attr_equipment" class="equipbox"></textarea>
-    </div>
-    <div class="notes">
-        <label>Notes:</label><textarea name="attr_notes" class="notebox"></textarea>
+    <div class="current">
+        <div class="conditions grid-container"></div>
+        <div class="condition blind grid-element">
+            <input class="blind-numbox" type="number" value="0" name="attr_blind" />
+        </div>
+        <div class="condition degen-curse grid-element">
+            <input class="degen-numbox" type="number" value="0" name="attr_degen" />
+            <input class="curse-numbox" type="number" value="0" name="attr_curse" />
+        </div>
+        <div class="condition taunt grid-element">
+            <input class="taunt-numbox" type="number" value="0" name="attr_taunt" />
+        </div>
+        <div class="condition impeded grid-element">
+            <input class="impeded-numbox" type="number" value="0" name="attr_impeded" />
+        </div>
+        <div class="condition shroud grid-element">
+            <input class="shroud-numbox" type="number" value="0" name="attr_shroud" />
+        </div>
+        <div class="condition possession grid-element">
+            <input class="possession-numbox" type="number" value="0" name="attr_possession" />
+        </div>
+        <div class="condition rage grid-element">
+            <input class="rage-numbox" type="number" value="0" name="attr_rage" />
+        </div>
+        <div class="condition vulnerable grid-element">
+            <input class="vulnerable-numbox" type="number" value="0" name="attr_vulnerable" />
+        </div>
+        <div class="condition aura grid-element">
+            <input class="aura-numbox" type="number" value="0" name="attr_aura" />
+        </div>
+        <div class="derived grid-container">
+            <span>derived</span>
+        </div>
     </div>
 </div>
+
+<script type="text/worker">
+    const buttonlist = ["character","current", "lifepath"];
+    buttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                sheetTab: button
+            });
+        });
+    });
+</script>

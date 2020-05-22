@@ -1,8 +1,21 @@
-.sheet-main {
+.sheet-container {
+    position: relative;
+}
+
+/*====Tabs===*/
+
+.sheet-hidden, 
+.sheet-character,
+.sheet-current,
+.sheet-lifepath {
+  display: none;
+}
+
+.sheet-tabstoggle[value="character"] ~ div.sheet-character {
   display: grid;
   width: 800px;
   height: 900px;
-  grid-gap: 4px;
+  grid-gap: 2px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 2fr 3fr 1fr 1fr 1fr;
   grid-template-areas:"bio stats"
@@ -12,6 +25,30 @@
                       "equipment equipment"
                       "notes notes";
 }
+
+.sheet-tabstoggle[value="current"] ~ div.sheet-current {
+    display: grid;
+    width: 680px;
+    height: 900px;
+    grid-gap: 0px;
+    grid-template-columns: 5fr 3fr;
+    grid-template-rows: 15.1% 12.1% 9.7% 9.1% 9.3% 11% 9.9% 10.3% 13.4%;
+    grid-template-areas:"derived blind"
+                        "derived degen-curse"
+                        "derived taunt"
+                        "derived impeded"
+                        "derived shroud"
+                        "derived possession"
+                        "derived rage"
+                        "derived vulnerable"
+                        "derived aura";
+}
+
+/*.sheet-tabstoggle[value="character"] ~ div.sheet-character,
+.sheet-tabstoggle[value="conditions"] ~ div.sheet-conditions,
+.sheet-tabstoggle[value="lifepath"] ~ div.sheet-lifepath {
+  display: block;
+}*/
 
 /*----------------- GENERAL CSS ------------------*/
 input {
@@ -171,4 +208,134 @@ textarea {
     resize: vertical;
     width: 90%;
     height: 100px;
+}
+
+.sheet-current .sheet-conditions {
+    grid-area: blind / blind / aura / aura;
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/Conditions.png?raw=true");
+    background-size: 260px 900px;
+    background-repeat: no-repeat;
+}
+
+.sheet-current .sheet-derived {
+    grid-area: derived;
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/L_Background_abv.png?raw=true");
+    background-size: 466px 900px;
+    background-repeat: no-repeat;
+    background-position: 0px center;
+    display: grid;
+    grid-gap: 4px;
+    grid-template-columns: 1fr, 1fr, 1fr;
+    grid-template-rows: 1fr, 1fr, 1fr, 1fr;
+    grid-template-areas:"PDF pierce focus"
+                        "PPF pparry evade"
+                        "MDF MPF mparry"
+                        "SDF SPF sparry";
+}
+
+.sheet-current .sheet-blind {
+    grid-area: blind;
+    position: center;
+}
+
+.sheet-current .sheet-degen-curse {
+    grid-area: degen-curse;
+}
+
+.sheet-current .sheet-taunt {
+    grid-area: taunt;
+    resize: vertical;
+}
+
+.sheet-current .sheet-impeded {
+    grid-area: impeded;
+}
+
+.sheet-current .sheet-shroud {
+    grid-area: shroud;
+}
+
+.sheet-current .sheet-possession {
+    grid-area: possession;
+}
+
+.sheet-current .sheet-rage {
+    grid-area: rage;
+}
+
+.sheet-current .sheet-vulnerable {
+    grid-area: vulnerable;
+}
+
+.sheet-current .sheet-aura {
+    grid-area: aura;
+}
+
+.sheet-condition input {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 2.5em;
+    display: inline-box;
+    width: 100px;
+}
+
+.sheet-blind-numbox {
+    position: relative;
+    left: 75%;
+    top: 50%;
+}
+
+.sheet-degen-numbox {
+    position: relative;
+    left: 40%;
+    top: 15%;
+}
+
+.sheet-curse-numbox {
+    position: relative;
+    left: 30%;
+    top: 15%;
+}
+
+.sheet-taunt-numbox {
+    position: relative;
+    left: 75%;
+    top: 35%;
+}
+
+.sheet-impeded-numbox {
+    position: relative;
+    left: 75%;
+    top: 5%;
+}
+
+.sheet-shroud-numbox {
+    position: relative;
+    left: 75%;
+    top: 20%;
+}
+
+.sheet-possession-numbox {
+    position: relative;
+    left: 75%;
+    top: 40%;
+}
+
+.sheet-rage-numbox {
+    position: relative;
+    left: 75%;
+    top: 40%;
+}
+
+.sheet-vulnerable-numbox {
+    position: relative;
+    left: 75%;
+    top: 30%;
+}
+
+.sheet-aura-numbox {
+    position: relative;
+    left: 75%;
+    top: 30%;
 }
