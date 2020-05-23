@@ -35,4 +35,16 @@ Instructions:
 26) Set each of the decks to a card size of 20px X 30px (default settings are ok for everything else)
 27) Add cards equal to the number of runes the character has and upload the appropriate graphic from the images folder. <!IMPORTANT!>Upload the files from your computer, do not use files already uploaded to your roll20 assets. I don't know why images from your roll20 assets don't work, but they don't.
 28) Choose an appropriate card back and save
-29) You should now be ready to play. At a minimum, your characters will need to have the destiny field filled out on their character sheet for the wyrd program to work. Use the "Current" tab in the character sheet to keep track of conditions ()
+29) You should now be ready to play. At a minimum, your characters will need to have the destiny field filled out on their character sheet for the wyrd program to work. Use the "Current" tab in the character sheet to keep track of conditions (playmats should automatically update). Use the rest of the character sheet as you see fit.
+
+Description of API scripts:
+The wyrd command will draw your destiny in runes and play them to the In-Hand portion of the playing character's playmat. Runes played by wyrd will stagger so that they don't overlap. A second instance of wyrd will overlap with a previous one
+The cleanup command will remove runes to the deck and shuffle it. It will ignore runes in wounds, death, drain, and any selected runes (use shift-select to select multiple runes). It will NOT ignore runes in stun, so select them if you want to keep them out
+
+Known Issues:
+Using cleanup will cause "Card was not on the table." to be logged to the console. Ignore it.
+If you change multiple conditions in rapid succession then sometimes one or more of them will not be caught and updated on the playmat. For best practices, update one condition at a time and either close the character sheet or switch to the Character tab between updates. If the playmat does fail to update, changing the condition and then changing it back should force an update with correct information.
+Sometimes a rune graphic will become unlinked from the card object such that the image remains on the playmat while the deck regesters that all runes are in the deck. In this circumstance it is fine to delete the image from the playmat.
+
+Troubleshooting:
+If any of the scripts stop working, check the API console and if it shows and error, restart it. If wyrd stops working, manually recall and shuffle the decks. If that doesn't work, check the decks and make sure that all of them have a linked graphic for the cards. 
