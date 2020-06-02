@@ -1,9 +1,19 @@
 //Begin wyrd script
 on('chat:message', (msg) => {
     if ('api' === msg.type && /!wyrd\b/i.test(msg.content)) {
-            const args = msg.content.split(/\s+--/);
-            //getid of deck
-            //deck must have the same name as the character
+        //these are the placement coordinants for the various zones on the playmat
+        const coords = {hand: [0.2, 0.2], stun: [0.1, -0.04], wounds1: [0.16, -0.16], wounds2: [-0.05, -0.27], wounds3: [-0.25, -0.42], death: [0.25, -0.27], drain: [0.4, -0.27]};
+        const args = msg.content.split(/\s+--/);
+        //check to see if third argument specifies a zone other than 'hand', default to 'hand'
+        if (!['stun', 'wounds1', 'wounds2', 'wounds3', 'death', 'drain'].includes(args[3])) {
+            args[3]='hand';
+        }
+        //check to see if 4th argument specifies a layer other than 'objects', default to 'objects'
+        if (!['gmlayer', 'map'].includes(args[4])) {
+            args[4]='objects';
+        }
+        //getid of deck
+        //deck must have the same name as the character
         let theDeck = findObjs({
             _type: "deck",
             name: args[1]
@@ -41,7 +51,7 @@ on('chat:message', (msg) => {
                 //Put the card on the playmat, will stagger cards so they don't all stack on top of eachother
                 //These numbers are scaled to put the cards into the in hand area on my playmat. If you change
                 //the playmat size you will need to change them
-                playCardToTable(card.id, {left: playmat.get("left")+i*20-0.2*playmat.get('width'), top: playmat.get("top")-0.2*playmat.get('height'), pageid: pageID});
+                playCardToTable(card.id, {left: playmat.get("left")+i*20-coords[`${args[3]}`][0]*playmat.get('width'),top: playmat.get("top")-coords[`${args[3]}`][1]*playmat.get('height'), pageid: pageID, layer: args[4]});
                 //I don't know why this works, but it seems necessary to change the "controlledby" property
                 let cardObj = findObjs({
                     cardid: card.id

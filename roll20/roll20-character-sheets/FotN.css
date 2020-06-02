@@ -14,14 +14,13 @@
 .sheet-tabstoggle[value="character"] ~ div.sheet-character {
   display: grid;
   width: 800px;
-  height: 900px;
-  grid-gap: 2px;
+  height: 1023px;
+  grid-gap: 0px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 2fr 3fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 3fr 2fr 1.55fr;
   grid-template-areas:"bio stats"
                       "skills passives"
                       "actives actives"
-                      "gear gear"
                       "equipment equipment"
                       "notes notes";
 }
@@ -73,76 +72,119 @@ textarea {
     border-style: solid;
 }
 
-.sheet-flex-col {
-  display: flex;
-  flex-flow: row wrap;
-  /*justify-content: flex-start;*/
-}
-
-.sheet-flex-center {
-  align-items: center;
-  justify-content: center;
-}
-
 .sheet-single-char {
     width: 20px;
 }
 
 /*------------- Section-specific CSS -------------*/
+    /*-------------Character Page---------------------*/
+.sheet-ability-box {
+    overflow: auto;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+}
+
+.sheet-ability-box input, textarea {
+    background: rgba(255, 255, 255, 1)
+}
 
 .sheet-bio {
   grid-area: bio;
-  display: flex;
+  height: 130px;
   background-color: olive;
-  flex-direction: column;
+  background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/BK-bio.png");
+  background-size: 100%;
+}
+
+.sheet-bio label {
+    width: 95%;
 }
 
 .sheet-stats {
   grid-area: stats;
+  height: 130px;
   background-color: orange;
+  background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/BK-stats.png");
+  background-size: 100%;
   display: grid;
   grid-gap: 4px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
 }
 
+.sheet-labeltext {
+    font-size: 1.3em;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+.sheet-stats label {
+    width: 95%;
+}
+
+.sheet-skills .sheet-ability-wrapper {
+    width: 80%;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto; 
+    background: transparent;
+    display: block;
+}
+
 .sheet-skills {
   grid-area: skills;
+  height: 223px;
   background-color: brown;
+  background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/BK-skills.png");
+  background-size: 100%;
 }
 
 .sheet-skills .sheet-skillname {
    display: inline-block;
-   width: 83%;
+   width: 70%;
 }
 
 .sheet-skills .sheet-skillrank {
     display: inline;
 }
 
+.sheet-skills .sheet-textbox {
+    width: 30%;
+}
+
 .sheet-passives {
   grid-area: passives;
+  height: 223px;
   background-color: green;
+  background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/BK-passives.png");
+  background-size: 100%;
 }
 
 .sheet-passives .sheet-passivename {
     display: inline-block;
-    width: 40%;
+    width: 38%;
 }
 
 .sheet-passives .sheet-passivedesc {
     display: inline-block;
-    width: 50%;
+    width: 45%;
 }
 
 .sheet-actives {
   grid-area: actives;
+  height: 307px;
   background-color: coral;
+  background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/BK-actives.png?raw=true");
+  background-size: 100%;
 }
 
 .sheet-actives .sheet-activename {
     display: inline-block;
     width: 20%;
+}
+
+.sheet-actives .sheet-rune {
+    display: inline-block;
+    width: 10%;
 }
 
 .sheet-actives .sheet-pmeta {
@@ -165,72 +207,80 @@ textarea {
 
 .sheet-actives .sheet-activedesc {
     display: inline-block;
-    width: 48%;
-}
-
-.sheet-gear {
-  grid-area: gear;
-  background-color: grey;
-}
-
-.sheet-gear .sheet-gearspace {
-    display: inline-block;
-    width: 78px;
-}
-
-.sheet-gear .sheet-geardesc {
-    display: inline-block;
-    width: 160px;
-}
-
-.sheet-gear .sheet-gearnum {
-    display: inline-block;
-    width: 45px;
+    width: 30%;
 }
 
 .sheet-equipment {
   grid-area: equipment;
-  background-color: chocolate;
+  background-color: grey;
+  background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/BK-equip.png?raw=true");
+  background-size: 100%;
 }
 
-.sheet-equipment .sheet-equipbox {
-    resize: vertical;
-    width: 90%;
-    height: 100px;
+.sheet-equipment .sheet-equipname {
+    display: inline-block;
+    width: 20%;
+}
+
+.sheet-equipment .sheet-textbox {
+    display: inline-block;
+    width: 60%;
 }
 
 .sheet-notes {
     grid-area: notes;
     background-color: teal;
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/BK-notes.png?raw=true");
+    background-size: 100%;
+    width: 99.5%;
 }
 
 .sheet-notes .sheet-notebox {
     resize: vertical;
-    width: 90%;
+    width: 70%;
     height: 100px;
 }
 
+.sheet-notes .sheet-labeltext {
+    width: 10%;
+}
+
+    /*---------------------Repeating Sections----------------*/
+.sheet-character .sheet-modlabel {
+    display: inline-block;
+    width: 50px;
+    font-size: 1em;
+}
+
+.sheet-character .sheet-checkbox, .sheet-character .sheet-toggle-show {
+    display: inline-block;
+    width: 10px;
+}
+
+.sheet-equip .repeating_equipment {
+    display: inline-block;
+    width: 100%;
+}
+
+.sheet-equip .sheet-textbox {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    height: 18px;
+}
+
+input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
+    display:none;
+}
+
+    /*----------------------Current Page------------------*/
+        /*-----------------------Section-Conditions--------------------*/
 .sheet-current .sheet-conditions {
     grid-area: blind / blind / aura / aura;
     background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/Conditions.png?raw=true");
     background-size: 260px 900px;
     background-repeat: no-repeat;
-}
-
-.sheet-current .sheet-derived {
-    grid-area: derived;
-    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/L_Background_abv.png?raw=true");
-    background-size: 466px 900px;
-    background-repeat: no-repeat;
-    background-position: 0px center;
-    display: grid;
-    grid-gap: 4px;
-    grid-template-columns: 1fr, 1fr, 1fr;
-    grid-template-rows: 1fr, 1fr, 1fr, 1fr;
-    grid-template-areas:"PDF pierce focus"
-                        "PPF pparry evade"
-                        "MDF MPF mparry"
-                        "SDF SPF sparry";
+    position: relative;
 }
 
 .sheet-current .sheet-blind {
@@ -338,4 +388,171 @@ textarea {
     position: relative;
     left: 75%;
     top: 30%;
+}
+
+        /*-----------------Section-Derived----------------*/
+.sheet-current .sheet-derived {
+    grid-area: derived;
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/L_Background_abv.png?raw=true");
+    background-size: 466px 900px;
+    background-repeat: no-repeat;
+    background-position: 0px center;
+    border: 5px;
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: 1fr, 1fr, 1fr;
+    grid-template-rows: 1fr, 1fr, 1fr, 1fr;
+    grid-template-areas:"PDF pierce focus"
+                        "PPF pparry evade"
+                        "MDF MPF mparry"
+                        "SDF SPF sparry";
+}
+
+.sheet-derived-stat-label {
+    display: block;
+    height: 30px;
+    position: relative;
+    left: 50%;
+    top: 15%;
+}
+
+.sheet-derived .sheet-stat-container {
+    padding: 10px;
+    width: 130%;
+    position: relative;
+    top: 55%;
+    left: -50%;
+    background: transparent;
+    background-position: center;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    border: none;
+    display: ;
+}
+
+.sheet-derived .sheet-stat-container input {
+    position: relative;
+    top: 45%;
+    left: 34%;
+    width: 35px;
+    font-size: 1.5em;
+    background: transparent;
+    border: none;
+}
+
+.sheet-derived .sheet-stat-container input::-webkit-outer-spin-button,
+.sheet-derived .sheet-stat-container input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.sheet-derived .sheet-stat-container input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.sheet-derived .sheet-pdf {
+    grid-area: PDF;
+    background: transparent;
+}
+
+.sheet-pdf .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/icon-combat.png?raw=true");
+}
+
+.sheet-derived .sheet-pierce  {
+    grid-area: pierce;
+    background: transparent;
+}
+
+.sheet-pierce .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/icon-pierce.png?raw=true");
+}
+
+.sheet-derived .sheet-focus {
+    grid-area: focus;
+    background: transparent;
+}
+
+.sheet-focus .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/icon-focus.png?raw=true");
+}
+
+.sheet-derived .sheet-ppf {
+    grid-area: PPF;
+    background: transparent;
+}
+
+.sheet-ppf .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/Icon-armour%20physical.png?raw=true");
+}
+
+.sheet-derived .sheet-pparry {
+    grid-area: pparry;
+    background: transparent;
+}
+.sheet-pparry .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/icon-parry.png?raw=true");
+}
+
+.sheet-derived .sheet-evade {
+    grid-area: evade;
+    background: transparent;
+}
+
+.sheet-evade .sheet-stat-container {
+    background-image: url("");
+}
+
+.sheet-derived .sheet-mdf {
+    grid-area: MDF;
+    background: transparent;
+}
+
+.sheet-mdf .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/icon-combat%20mental.png?raw=true");
+}
+
+.sheet-derived .sheet-mpf {
+    grid-area: MPF;
+    background: transparent;
+}
+
+.sheet-mpf .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/Icon-armour%20mental.png?raw=true");
+}
+
+.sheet-derived .sheet-mparry {
+    grid-area: mparry;
+    background: transparent;
+}
+
+.sheet-mparry .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/icon-mparry.png?raw=true");
+}
+
+.sheet-derived .sheet-sdf {
+    grid-area: SDF;
+    background: transparent;
+}
+
+.sheet-sdf .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/icon-combat%20spiritual.png?raw=true");
+}
+
+.sheet-derived .sheet-spf {
+    grid-area: SPF;
+    background: transparent;
+}
+
+.sheet-spf .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/Icon-armour%20spiritual.png?raw=true");
+}
+
+.sheet-derived .sheet-sparry {
+    grid-area: sparry;
+    background: transparent;
+}
+
+.sheet-sparry .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/icon-sparry.png?raw=true");
 }

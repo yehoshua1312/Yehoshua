@@ -5,209 +5,224 @@
         <button type="action" name="act_lifepath" >Lifepath</button>
     </div>
     <input type='hidden' class='tabstoggle' name='attr_sheetTab' value='current' />
+   
     
     <div class="character">
-        <div class="bio">
-            <label>Player Name: <input type="text" name="attr_player_name" /></label>
-            <label>Character Name: <input type="text" name="attr_character_name" /></label>
-            <label>Archetype: <input type="text" name="attr_archtype" /></label>
+        <div class="bio ability-box">
+            <label><span class="labeltext">Player Name: </span><input type="text" name="attr_player_name" /></label>
+            <label><span class="labeltext">Character Name: </span><input type="text" name="attr_character_name" /></label>
+            <label><span class="labeltext">Archtype: </span><input type="text" name="attr_archtype" /></label>
         </div>
-        <div class="stats">
-            <label>Size: <input type="number" value="4" name="attr_size" /></label>
-            <label>Level: <input type="number" name="attr_level" /></label>
-            <label>Move: <input type="number" value="4" name="attr_move" /></label>
-            <label>Essence: <input type="number" name="attr_essence" /></label>
-            <label>Void Rune: <input type="text" name="attr_voidrune" class="single-char" /></label>
-            <label>Destiny: <input type="number" name="attr_destiny" /></label>
+        <div class="stats ability-box">
+            <label><span class="labeltext">Size: </span><input type="number" value="4" name="attr_size" /></label>
+            <label><span class="labeltext">Level: </span><input type="number" name="attr_level" /></label>
+            <label><span class="labeltext">Move: </span><input type="number" value="4" name="attr_move" /></label>
+            <label><span class="labeltext">Essence: </span><input type="number" name="attr_essence" /></label>
+            <label><span class="labeltext">Void Rune: </span><input type="text" name="attr_voidrune" class="single-char" /></label>
+            <label><span class="labeltext">Destiny: </span><input type="number" name="attr_destiny" /></label>
         </div>
-        <div class="skills">
-            <span class="sheet-skillname">Skills:</span>
-            <span class="sheet-skillrank">Rank:</span>
-            <fieldset class="repeating_skills">
-                <input class="skillname" type="text" name="attr_skillname" />
-                <input class="skillrank" type="number" name="attr_skillrank" />
-            </fieldset>
+        <div class="skills ability-box">
+            <div class="skills ability-wrapper">
+                <span class="skillname labeltext">Skills:</span>
+                <span class="skillrank labeltext">Rank:</span>
+                <fieldset class="repeating_skills">
+                    <input class="skillname" type="text" name="attr_skills_name" />
+                    <input class="skillrank" type="number" name="attr_skill_rank" />
+                </fieldset>
+            </div>
         </div>
-        <div class="passives">
-            <span class="passivename">Passive:</span>
-            <span class="passivedesc">Description:</span>
+        <div class="passives ability-box">
+            <span class="checkbox"></span>
+            <span class="passivename labeltext">Passive:</span>
+            <span class="passivedesc labeltext">Description:</span>
+            <span class="labeltext toggle-show">Show</span>
             <fieldset class="repeating_passives">
-                <input class="passivename" type="text" name="attr_passivename" />
-                <textarea class="passivedesc" name="attr_passivdesc" rows=1></textarea>
+                <input class="checkbox" type="checkbox" name="attr_passives_toggle" value="1" />
+                <input class="passivename" type="text" name="attr_passives_name" />
+                <textarea class="passivedesc textbox" name="attr_passives_description"></textarea>
+                <input type="checkbox" class="toggle-show" />
+                <div class="passivedetails showable">
+                    <label class="modlabel labeltext">PDF:<input class="mod" type='number' name='attr_passives_pdf' /></label>
+                    <label class="modlabel labeltext">Pierce:<input class="mod" type="number" name='attr_passives_pierce' /></label>
+                    <label class="modlabel labeltext">Focus:<input class="mod" type="number" name='attr_passives_focus' /></label>
+                    <label class="modlabel labeltext">PPF:<input class="mod" type="number" name='attr_passives_ppf' /></label>
+                    <label class="modlabel labeltext">Parry:<input class="mod" type="number" name='attr_passives_pparry' /></label>
+                    <label class="modlabel labeltext">Evade:<input class="mod" type="number" name='attr_passives_evade' /></label>
+                    <label class="modlabel labeltext">MDF:<input class="mod" type="number" name='attr_passives_mdf' /></label>
+                    <label class="modlabel labeltext">MPF:<input class="mod" type="number" name='attr_passives_mpf' /></label>
+                    <label class="modlabel labeltext">MParry:<input class="mod" type="number" name='attr_passives_mparry' /></label>
+                    <label class="modlabel labeltext">SDF:<input class="mod" type="number" name='attr_passives_sdf' /></label>
+                    <label class="modlabel labeltext">SPF:<input class="mod" type="number" name='attr_passives_spf' /></label>
+                    <label class="modlabel labeltext">SParry:<input class="mod" type="number" name='attr_passives_sparry' /></label>
+                </div>
             </fieldset>
         </div>
-        <div class="actives">
-            <span class="activename">Active:</span>
-            <span class="pmeta">PMeta:</span>
-            <span class="mmeta">MMeta:</span>
-            <span class="smeta">SMeta:</span>
-            <span class="activedesc">Description:</span>
+        <div class="actives ability-box">
+            <br>
+            <span class="checkbox"></span>
+            <span class="rune labeltext">Rune:</span>
+            <span class="activename labeltext">Active:</span>
+            <span class="pmeta labeltext">PMeta:</span>
+            <span class="mmeta labeltext">MMeta:</span>
+            <span class="smeta labeltext">SMeta:</span>
+            <span class="activedesc labeltext">Description:</span>
+            <span class="labeltext toggle-show">Show</span>
             <fieldset class="repeating_actives">
-        		<input class="activename" type="text" name="attr_avtivename" />
-        		<select name="attr_pmeta" class="pmeta">
-        			<option value="abate">Abate</option>
-        			<option value="absorb">Absorb</option>
-        			<option value="amplify">Amplify</option>
-        			<option value="area">Area</option>
-        			<option value="cannibalize">Cannibalize</option>
-        			<option value="combo">Combo</option>
-        			<option value="cluster">Cluster</option>
-        			<option value="deflect">Deflect</option>
-        			<option value="dodge">Dodge</option>
-        			<option value="echo">Echo</option>
-        			<option value="eldritch">Eldritch</option>
-        			<option value="expanse">Expanse</option>
-        			<option value="fortify">Fortify</option>
-        			<option value="gloom">Gloom</option>
-        			<option value="maintain">Maintain</option>
-        			<option value="multi">Multi</option>
-        			<option value="open">Open</option>
-        			<option value="permanency">Permanency</option>
-        			<option value="piercer">Piercer</option>
-        			<option value="proficiency">Proficiency</option>
-        			<option value="range">Range</option>
-        			<option value="sight">Sight</option>
-        			<option value="stutter">Stutter</option>
-        			<option value="weapon">Weapon</option>
-        		</select>
-        		<select name="attr_mmeta" class="mmeta">
-        			<option value="abate">Abate</option>
-        			<option value="absorb">Absorb</option>
-        			<option value="amplify">Amplify</option>
-        			<option value="area">Area</option>
-        			<option value="cannibalize">Cannibalize</option>
-        			<option value="combo">Combo</option>
-        			<option value="cluster">Cluster</option>
-        			<option value="deflect">Deflect</option>
-        			<option value="dodge">Dodge</option>
-        			<option value="echo">Echo</option>
-        			<option value="eldritch">Eldritch</option>
-        			<option value="expanse">Expanse</option>
-        			<option value="fortify">Fortify</option>
-        			<option value="gloom">Gloom</option>
-        			<option value="maintain">Maintain</option>
-        			<option value="multi">Multi</option>
-        			<option value="open">Open</option>
-        			<option value="permanency">Permanency</option>
-        			<option value="piercer">Piercer</option>
-        			<option value="proficiency">Proficiency</option>
-        			<option value="range">Range</option>
-        			<option value="sight">Sight</option>
-        			<option value="stutter">Stutter</option>
-        			<option value="weapon">Weapon</option>
-        		</select>
-        		<select name="attr_smeta" class="smeta">
-        			<option value="abate">Abate</option>
-        			<option value="absorb">Absorb</option>
-        			<option value="amplify">Amplify</option>
-        			<option value="area">Area</option>
-        			<option value="cannibalize">Cannibalize</option>
-        			<option value="combo">Combo</option>
-        			<option value="cluster">Cluster</option>
-        			<option value="deflect">Deflect</option>
-        			<option value="dodge">Dodge</option>
-        			<option value="echo">Echo</option>
-        			<option value="eldritch">Eldritch</option>
-        			<option value="expanse">Expanse</option>
-        			<option value="fortify">Fortify</option>
-        			<option value="gloom">Gloom</option>
-        			<option value="maintain">Maintain</option>
-        			<option value="multi">Multi</option>
-        			<option value="open">Open</option>
-        			<option value="permanency">Permanency</option>
-        			<option value="piercer">Piercer</option>
-        			<option value="proficiency">Proficiency</option>
-        			<option value="range">Range</option>
-        			<option value="sight">Sight</option>
-        			<option value="stutter">Stutter</option>
-        			<option value="weapon">Weapon</option>
-        		</select>
-        		<textarea name="attr_activedesc" class="activedesc"></textarea>
-        	</fieldset>
+                <input class="checkbox" type="checkbox" name="attr_actives_toggle" value="1" />
+                <select name="attr_rune" class="rune">
+                    <option value="tiwaz">Tiwaz</option>
+                    <option value="berkano">Berkano</option>
+                    <option value="ehwo">Ehwo</option>
+                    <option value="mann">Mann</option>
+                    <option value="claguz">Claguz</option>
+                    <option value="ing">Ing</option>
+                    <option value="dagaz">Dagaz</option>
+                    <option value="othala">Othala</option>
+                    <option value="hagalaz">Hagalaz</option>
+                    <option value="naudhneed">Naudhneed</option>
+                    <option value="isaice">Isaice</option>
+                    <option value="jethe">Jethe</option>
+                    <option value="Eihwas">Eihwas</option>
+                    <option value="pertho">Pertho</option>
+                    <option value="elhaz">Elhaz</option>
+                    <option value="sowsun">Sowsun</option>
+                    <option value="fehu">Fehu</option>
+                    <option value="uruz">Uruz</option>
+                    <option value="thurisaz">Thurisaz</option>
+                    <option value="cansuz">Cansuz</option>
+                    <option value="raidho">Raidho</option>
+                    <option value="kenaz">Kenaz</option>
+                    <option value="gebgift">Gebgift</option>
+                    <option value="wunjo">Wunjo</option>
+                </select>
+                <input class="activename" type="text" name="attr_avtivename" />
+                <select name="attr_pmeta" class="pmeta metatag">
+                    <option value="abate">Abate</option>
+                    <option value="absorb">Absorb</option>
+                    <option class="meta" value="amplify">Amplify</option>
+                    <option value="area">Area</option>
+                    <option value="cannibalize">Cannibalize</option>
+                    <option value="combo">Combo</option>
+                    <option value="cluster">Cluster</option>
+                    <option value="deflect">Deflect</option>
+                    <option value="dodge">Dodge</option>
+                    <option value="echo">Echo</option>
+                    <option value="eldritch">Eldritch</option>
+                    <option value="expanse">Expanse</option>
+                    <option value="fortify">Fortify</option>
+                    <option value="gloom">Gloom</option>
+                    <option value="maintain">Maintain</option>
+                    <option value="multi">Multi</option>
+                    <option value="open">Open</option>
+                    <option value="permanency">Permanency</option>
+                    <option value="piercer">Piercer</option>
+                    <option value="proficiency">Proficiency</option>
+                    <option value="range">Range</option>
+                    <option value="sight">Sight</option>
+                    <option value="stutter">Stutter</option>
+                    <option value="weapon">Weapon</option>
+                </select>
+                
+                <select name="attr_mmeta" class="mmeta metatag">
+                    <option value="abate">Abate</option>
+                    <option value="absorb">Absorb</option>
+                    <option value="amplify">Amplify</option>
+                    <option value="area">Area</option>
+                    <option value="cannibalize">Cannibalize</option>
+                    <option value="combo">Combo</option>
+                    <option value="cluster">Cluster</option>
+                    <option value="deflect">Deflect</option>
+                    <option value="dodge">Dodge</option>
+                    <option value="echo">Echo</option>
+                    <option value="eldritch">Eldritch</option>
+                    <option value="expanse">Expanse</option>
+                    <option value="fortify">Fortify</option>
+                    <option value="gloom">Gloom</option>
+                    <option value="maintain">Maintain</option>
+                    <option value="multi">Multi</option>
+                    <option value="open">Open</option>
+                    <option value="permanency">Permanency</option>
+                    <option value="piercer">Piercer</option>
+                    <option value="proficiency">Proficiency</option>
+                    <option value="range">Range</option>
+                    <option value="sight">Sight</option>
+                    <option value="stutter">Stutter</option>
+                    <option value="weapon">Weapon</option>
+                </select>
+                <select name="attr_smeta" class="smeta metatag">
+                    <option value="abate">Abate</option>
+                    <option value="absorb">Absorb</option>
+                    <option value="amplify">Amplify</option>
+                    <option value="area">Area</option>
+                    <option value="cannibalize">Cannibalize</option>
+                    <option value="combo">Combo</option>
+                    <option value="cluster">Cluster</option>
+                    <option value="deflect">Deflect</option>
+                    <option value="dodge">Dodge</option>
+                    <option value="echo">Echo</option>
+                    <option value="eldritch">Eldritch</option>
+                    <option value="expanse">Expanse</option>
+                    <option value="fortify">Fortify</option>
+                    <option value="gloom">Gloom</option>
+                    <option value="maintain">Maintain</option>
+                    <option value="multi">Multi</option>
+                    <option value="open">Open</option>
+                    <option value="permanency">Permanency</option>
+                    <option value="piercer">Piercer</option>
+                    <option value="proficiency">Proficiency</option>
+                    <option value="range">Range</option>
+                    <option value="sight">Sight</option>
+                    <option value="stutter">Stutter</option>
+                    <option value="weapon">Weapon</option>
+                </select>
+                <textarea name="attr_activedesc" class="activedesc"></textarea>
+                <input type="checkbox" class="toggle-show" />
+                <div class="passivedetails showable">
+                    <label class="modlabel labeltext">PDF:<input class="mod" type='number' name='attr_actives_pdf' /></label>
+                    <label class="modlabel labeltext">Pierce:<input class="mod" type="number" name='attr_actives_pierce' /></label>
+                    <label class="modlabel labeltext">Focus:<input class="mod" type="number" name='attr_actives_focus' /></label>
+                    <label class="modlabel labeltext">PPF:<input class="mod" type="number" name='attr_actives_ppf' /></label>
+                    <label class="modlabel labeltext">Parry:<input class="mod" type="number" name='attr_actives_pparry' /></label>
+                    <label class="modlabel labeltext">Evade:<input class="mod" type="number" name='attr_actives_evade' /></label>
+                    <label class="modlabel labeltext">MDF:<input class="mod" type="number" name='attr_actives_mdf' /></label>
+                    <label class="modlabel labeltext">MPF:<input class="mod" type="number" name='attr_actives_mpf' /></label>
+                    <label class="modlabel labeltext">MParry:<input class="mod" type="number" name='attr_actives_mparry' /></label>
+                    <label class="modlabel labeltext">SDF:<input class="mod" type="number" name='attr_actives_sdf' /></label>
+                    <label class="modlabel labeltext">SPF:<input class="mod" type="number" name='attr_actives_spf' /></label>
+                    <label class="modlabel labeltext">SParry:<input class="mod" type="number" name='attr_actives_sparry' /></label>
+                </div>
+            </fieldset>
         </div>
-        <div class="gear">
-            <label>
-                <span class="gearspace"></span>
-                <span class="geardesc">Description</span>
-                <span class="gearnum">Size</span>
-                <span class="gearnum">DF</span>
-                <span class="gearnum">Pierce</span>
-                <span class="gearnum">Reach</span>
-                <span class="gearnum">Parry</span>
-                <span class="gearnum">Focus</span>
-            </label>
-            <label>Weapon 1: 
-                <input type="text" name=attr_weapon1 />
-                <input type="number" name="attr_weapon1size" class="size"/>
-                <input type="number" name="attr_weapon1df" class="pdf"/>
-                <input type="number" name="attr_weapon1pierce" class="pierce"/>
-                <input type="number" name="attr_weapon1reach" class="reach"/>
-                <input type="number" name="attr_weapon1parry" class="parry"/>
-                <input type="number" name="attr_weapon1focus" class="focus"/>
-            </label>
-            <label>Weapon 2: 
-                <input type="text" name=attr_weapon2 />
-                <input type="number" name="attr_weapon1size" class="size"/>
-                <input type="number" name="attr_weapon2df" class="pdf"/>
-                <input type="number" name="attr_weapon2pierce" class="pierce"/>
-                <input type="number" name="attr_weapon2reach" class="reach"/>
-                <input type="number" name="attr_weapon2parry" class="parry"/>
-                <input type="number" name="attr_weapon2focus" class="focus"/>
-            </label>
-            <br>
-            <label>
-                <span class="gearspace"></span>
-                <span class="geardesc">Description</span>
-                <span class="gearnum">Size</span>
-                <span class="gearnum">PPF</span>
-                <span class="gearnum">MPF</span>
-                <span class="gearnum">SPF</span>
-                <span class="gearnum">Parry</span>
-                <span class="gearnum">Evade</span>
-                <span class="gearnum">Focus</span>
-            </label>
-            <label><span class="gearspace">Armor:</span>   
-                <input type="text" name=attr_armor />
-                <input type="number" name="attr_armorsize" class="size"/>
-                <input type="number" name="attr_armorppf" class="ppf"/>
-                <input type="number" name="attr_armormpf" class="mpf"/>
-                <input type="number" name="attr_armorspf" class="spf"/>
-                <input type="number" name="attr_armorparry" class="parry"/>
-                <input type="number" name="attr_armorevade" class="evade"/>
-                <input type="number" name="attr_armorfocus" class="focus"/>
-            </label>
-            <br>
-            <label>
-                <span class="gearspace"></span>
-                <span class="gearnum">PDF</span>
-                <span class="gearnum">MDF</span>
-                <span class="gearnum">SDF</span>
-                <span class="gearnum">PPF</span>
-                <span class="gearnum">MPF</span>
-                <span class="gearnum">SPF</span>
-                <span class="gearnum">Pierce</span>
-                <span class="gearnum">Parry</span>
-                <span class="gearnum">Evade</span>
-                <span class="gearnum">Focus</span>
-            </label>
-            <label><span class="gearspace">Misc:</span>   
-                <input type="number" name="attr_miscpdf" class="pdf"/>
-                <input type="number" name="attr_miscmdf" class="mdf"/>
-                <input type="number" name="attr_miscsdf" class="sdf"/>
-                <input type="number" name="attr_miscppf" class="ppf"/>
-                <input type="number" name="attr_miscmpf" class="mpf"/>
-                <input type="number" name="attr_miscspf" class="spf"/>
-                <input type="number" name="attr_miscpierce" class="pierce"/>
-                <input type="number" name="attr_miscparry" class="parry"/>
-                <input type="number" name="attr_miscevade" class="evade"/>
-                <input type="number" name="attr_miscfocus" class="focus"/>
-            </label>
+        <div class="equipment ability-box">
+            <span class="checkbox"></span>
+            <span class="equipname labeltext">Equipment:</span>
+            <span class="textbox labeltext">Description:</span>
+            <span class="labeltext toggle-show">Show</span>
+            <fieldset class="repeating_equipment">
+                <input class="checkbox" type="checkbox" name="attr_equipment_toggle" value="1" />
+                <input class="equipname" type="text" name="attr_equipment_name" />
+                <textarea class="equipdesc textbox" name="attr_equipment_description"></textarea>
+                <input type="checkbox" class="toggle-show" />
+                <div class="equipdetails showable">
+                    <label class="modlabel labeltext">PDF:<input class="mod" type='number' name='attr_equipment_pdf' /></label>
+                    <label class="modlabel labeltext">Pierce:<input class="mod" type="number" name='attr_equipment_pierce' /></label>
+                    <label class="modlabel labeltext">Reach/<br>Range:<input class="mod" type="number" name='attr_equipment_reach' /></label>
+                    <label class="modlabel labeltext">Focus:<input class="mod" type="number" name='attr_equipment_focus' /></label>
+                    <label class="modlabel labeltext">PPF:<input class="mod" type="number" name='attr_equipment_ppf' /></label>
+                    <label class="modlabel labeltext">Parry:<input class="mod" type="number" name='attr_equipment_pparry' /></label>
+                    <label class="modlabel labeltext">Evade:<input class="mod" type="number" name='attr_equipment_evade' /></label>
+                    <label class="modlabel labeltext">MDF:<input class="mod" type="number" name='attr_equipment_mdf' /></label>
+                    <label class="modlabel labeltext">MPF:<input class="mod" type="number" name='attr_equipment_mpf' /></label>
+                    <label class="modlabel labeltext">MParry:<input class="mod" type="number" name='attr_equipment_mparry' /></label>
+                    <label class="modlabel labeltext">SDF:<input class="mod" type="number" name='attr_equipment_sdf' /></label>
+                    <label class="modlabel labeltext">SPF:<input class="mod" type="number" name='attr_equipment_spf' /></label>
+                    <label class="modlabel labeltext">SParry:<input class="mod" type="number" name='attr_equipment_sparry' /></label>
+                </div>
+            </fieldset>
         </div>
-        <div class="equipment">
-            <label>Equipment:</label><textarea name="attr_equipment" class="equipbox"></textarea>
-        </div>
-        <div class="notes">
-            <label>Notes:</label><textarea name="attr_notes" class="notebox"></textarea>
+        <div class="notes ability-box">
+            <label class="labeltext">Notes:</label>
+            <textarea class="notebox" name="attr_notes"></textarea>
         </div>
     </div>
     <div class="current">
@@ -241,12 +256,138 @@
             <input class="aura-numbox" type="number" value="0" name="attr_aura" />
         </div>
         <div class="derived grid-container">
-            <span>derived</span>
+            <div class="derived grid-element pdf">
+                <label class="derived-stat-label">Physical<br>DF: </label>
+                <span class="stat-container"><input type="number" name="attr_pdf" /></span>
+            </div>
+            <div class="derived grid-element pierce">
+                <label class="derived-stat-label">Pierce: </label>
+                <span class="stat-container"><input type="number" name="attr_pierce" /></span>
+            </div>
+            <div class="derived grid-element focus">
+                <label class="derived-stat-label">Focus: </label>
+                <span class="stat-container"><input type="number" name="attr_focus" /></span>
+            </div>
+            <div class="derived grid-element ppf">
+                <label class="derived-stat-label">Physical<br>PF: </label>
+                <span class="stat-container"><input type="number" name="attr_ppf" /></span>
+            </div>
+            <div class="derived grid-element pparry">
+                <label class="derived-stat-label">Physical<br>Parry: </label>
+                <span class="stat-container"><input type="number" name="attr_pparry" /></span>
+            </div>
+            <div class="derived grid-element evade">
+                <label class="derived-stat-label">Evade: </label>
+                <span class="stat-container"><input type="number" name="attr_evade" /></span>
+            </div>
+            <div class="derived grid-element mdf">
+                <label class="derived-stat-label">Mental<br>DF: </label>
+                <span class="stat-container"><input type="number" name="attr_mdf" /></span>
+            </div>
+            <div class="derived grid-element mpf">
+                <label class="derived-stat-label">Mental<br>PF: </label>
+                <span class="stat-container"><input type="number" name="attr_mpf" /></span>
+            </div>
+            <div class="derived grid-element mparry">
+                <label class="derived-stat-label">Mental<br>Parry: </label>
+                <span class="stat-container"><input type="number" name="attr_mparry" /></span>
+            </div>
+            <div class="derived grid-element sdf">
+                <label class="derived-stat-label">Spiritual<br>DF: </label>
+                <span class="stat-container"><input type="number" name="attr_sdf" /></span>
+            </div>
+            <div class="derived grid-element spf">
+                <label class="derived-stat-label">Spiritual<br>PF: </label>
+                <span class="stat-container"><input type="number" name="attr_spf" /></span>
+            </div>
+            <div class="derived grid-element sparry">
+                <label class="derived-stat-label">Spiritual<br>Parry: </label>
+                <span class="stat-container"><input type="number" name="attr_sparry" /></span>
+            </div>
         </div>
     </div>
 </div>
 
 <script type="text/worker">
+    const int = (value, error = 0) => parseInt(value) || error;
+    const derived_stats = ['pdf', 'pierce', 'focus', 'ppf', 'pparry', 'evade', 'mdf', 'mpf', 'mparry', 'sdf', 'spf', 'sparry'];
+    // an array of the repeating section names
+    const section_names = ['equipment', 'passives', 'actives'];
+    // an array of the attributes outside of the section you want to use.
+    const outside_attributes = ['strength', 'dexterity'];
+    
+    // a function to quickly build repeating section names, suitable for this worker.
+    const section_field = (section, field, id = ':') => `repeating_${section}${id === ':' ? id : `_${id}_`}${section}_${field}`;
+    
+    // altered buildChanges, so now it is a function that can hanndle all 3 repeating sections
+    const buildChanges = (section) => derived_stats.reduce((total, item) => `${total} change:${section_field(section, item)}`, '');
+
+    // created 3 variables for the change:stuff line, to make that less of a chore to write and read
+    const toggleChanges = section_names.map(section => `change:repeating_${section}:${section}_toggle`).join(' ');
+    const outsideChanges = outside_attributes.map(stat => `change:${stat}`).join(' ');
+    const removeSections = section_names.map(section => `remove:repeating_${section}`).join(' ');
+    
+    on(`${toggleChanges} ${outsideChanges} ${buildChanges(section_names[0])} ${buildChanges(section_names[1])} ${buildChanges(section_names[2])} ${toggleChanges} ${removeSections} sheet:opened`, () => {
+        // define the fieldnames outside the first getSectionIDs to make clear it doesnt belong to any of them
+        const fieldnames = [];
+        // notice the idarray array name has changed. It must be different in each getSectionIDs
+        getSectionIDs(`repeating_${section_names[0]}`, idarray0 => {
+            
+            // loop through idarray0, and create the repeating section attribute for each modifier attribute name
+            idarray0.forEach(id => {
+                derived_stats.forEach(mod => fieldnames.push(section_field(section_names[0], `${mod}`, id)));
+                fieldnames.push(section_field(section_names[0], 'toggle', id));
+            });
+            
+            getSectionIDs(`repeating_${section_names[1]}`, idarray1 => {
+                // loop through idarray1, and create the repeating section attribute for each modifier attribute name
+                idarray1.forEach(id => {
+                    derived_stats.forEach(mod => fieldnames.push(section_field(section_names[1], `${mod}`, id)));
+                    fieldnames.push(section_field(section_names[1], 'toggle', id));
+                });
+    
+                getSectionIDs(`repeating_${section_names[2]}`, idarray2 => {
+                    // loop through idarray2, and create the repeating section attribute for each modifier attribute name
+                    idarray2.forEach(id => {
+                        derived_stats.forEach(mod => fieldnames.push(section_field(section_names[2], `${mod}`, id)));
+                        fieldnames.push(section_field(section_names[2], 'toggle', id));
+                    });
+    
+                    // now we are ready to grab all the values from the character sheet
+                    // outside_attributes as an array of the attributes you want to usem that aren't in the repeating sections
+                    getAttrs([...fieldnames, ...outside_attributes], v => {
+                        console.log(v);
+                        console.log('v^');
+                        // initialise the object used for output, with each total attribute set to a default value of 0
+                        const output = {};
+                        derived_stats.forEach(mod => output[`${mod}`] = 0);
+                        
+                        // loop through all 3 idarrays
+                        // first set up an array of arrays, to make the idearrays easy to access with an index
+                        const idarrays = [idarray0, idarray1, idarray2];
+                        
+                        [0,1,2].forEach(num => {
+                            // now loop through each idarray, and get the various values and add them to output
+                            idarrays[num].forEach(id => {
+                                // check if this row is to be counted or not
+                                const toggle = int(v[section_field(section_names[num], 'toggle', id)]);
+                                if (toggle) {
+                                    // add each modifier to the total 
+                                    derived_stats.forEach(mod => output[`${mod}`] = output[`${mod}`] + int(v[section_field(section_names[num], `${mod}`, id)]));
+                                }
+                            });
+                            
+                        });
+
+                        // now handle the outsideattributes however you need to. 
+                        //output.pdf = output.pdf + int(v.strength);
+                        //output.pierce = output.pierce + int(v.dexterity);
+                        setAttrs(output);
+                    });
+                });
+            });
+        });
+    });
     const buttonlist = ["character","current", "lifepath"];
     buttonlist.forEach(button => {
         on(`clicked:${button}`, function() {
