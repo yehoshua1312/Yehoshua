@@ -8,7 +8,7 @@
 .sheet-character,
 .sheet-current,
 .sheet-lifepath {
-  display: none;
+    display: none;
 }
 
 .sheet-tabstoggle[value="character"] ~ div.sheet-character {
@@ -46,7 +46,7 @@
 /*.sheet-tabstoggle[value="character"] ~ div.sheet-character,
 .sheet-tabstoggle[value="conditions"] ~ div.sheet-conditions,
 .sheet-tabstoggle[value="lifepath"] ~ div.sheet-lifepath {
-  display: block;
+    display: block;
 }*/
 
 /*----------------- GENERAL CSS ------------------*/
@@ -62,7 +62,7 @@ input[type="number"] {
 
 textarea {
     display: inline-block;
-    resize: none;
+    resize: vertical;
     vertical-align: top;
     height: 18px;
 }
@@ -85,7 +85,7 @@ textarea {
 }
 
 .sheet-ability-box input, textarea {
-    background: rgba(255, 255, 255, 1)
+    background: rgba(255, 255, 255, 1);
 }
 
 .sheet-bio {
@@ -94,6 +94,7 @@ textarea {
   background-color: olive;
   background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/BK-bio.png");
   background-size: 100%;
+  background-opacity: 0.5;
 }
 
 .sheet-bio label {
@@ -112,9 +113,14 @@ textarea {
   grid-template-rows: 1fr 1fr 1fr;
 }
 
+.sheet-character .sheet-type {
+    display: inline-block;
+    width: 125px;
+}
+
 .sheet-labeltext {
     font-size: 1.3em;
-    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
 }
 
 .sheet-stats label {
@@ -148,7 +154,7 @@ textarea {
 }
 
 .sheet-skills .sheet-textbox {
-    width: 30%;
+    width: 85%;
 }
 
 .sheet-passives {
@@ -161,12 +167,12 @@ textarea {
 
 .sheet-passives .sheet-passivename {
     display: inline-block;
-    width: 38%;
+    width: 50%;
 }
 
-.sheet-passives .sheet-passivedesc {
+.sheet-passives .sheet-textbox {
     display: inline-block;
-    width: 45%;
+    width: 85%;
 }
 
 .sheet-actives {
@@ -179,10 +185,10 @@ textarea {
 
 .sheet-actives .sheet-activename {
     display: inline-block;
-    width: 20%;
+    width: 30%;
 }
 
-.sheet-actives .sheet-rune {
+.sheet-character .sheet-rune {
     display: inline-block;
     width: 10%;
 }
@@ -207,7 +213,7 @@ textarea {
 
 .sheet-actives .sheet-activedesc {
     display: inline-block;
-    width: 30%;
+    width: 100%;
 }
 
 .sheet-equipment {
@@ -249,6 +255,12 @@ textarea {
 .sheet-character .sheet-modlabel {
     display: inline-block;
     width: 50px;
+    font-size: 1em;
+}
+
+.sheet-character .sheet-desclabel {
+    display: inline-block;
+    width: 80%;
     font-size: 1em;
 }
 
@@ -321,70 +333,70 @@ input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
     grid-area: aura;
 }
 
-.sheet-condition input {
+.sheet-condition.sheet-grid-element input {
     background: transparent;
+    width: 35px;
     color: white;
     border: none;
     font-size: 2.5em;
     display: inline-box;
-    width: 100px;
 }
 
-.sheet-blind-numbox {
+.sheet-blind.sheet-numbox {
     position: relative;
     left: 75%;
     top: 50%;
 }
 
-.sheet-degen-numbox {
+.sheet-degen.sheet-numbox {
     position: relative;
     left: 40%;
     top: 15%;
 }
 
-.sheet-curse-numbox {
+.sheet-curse.sheet-numbox {
     position: relative;
-    left: 30%;
+    left: 60%;
     top: 15%;
 }
 
-.sheet-taunt-numbox {
+.sheet-taunt.sheet-numbox {
     position: relative;
     left: 75%;
     top: 35%;
 }
 
-.sheet-impeded-numbox {
+.sheet-impeded.sheet-numbox {
     position: relative;
     left: 75%;
     top: 5%;
 }
 
-.sheet-shroud-numbox {
+.sheet-shroud.sheet-numbox {
     position: relative;
     left: 75%;
     top: 20%;
 }
 
-.sheet-possession-numbox {
+.sheet-possession.sheet-numbox {
     position: relative;
     left: 75%;
     top: 40%;
 }
 
-.sheet-rage-numbox {
+.sheet-rage.sheet-numbox {
     position: relative;
     left: 75%;
     top: 40%;
 }
 
-.sheet-vulnerable-numbox {
+.sheet-vulnerable.sheet-numbox {
     position: relative;
     left: 75%;
     top: 30%;
 }
 
-.sheet-aura-numbox {
+.sheet-aura.sheet-numbox {
     position: relative;
     left: 75%;
     top: 30%;
@@ -393,16 +405,17 @@ input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
         /*-----------------Section-Derived----------------*/
 .sheet-current .sheet-derived {
     grid-area: derived;
+    height: 100%;
     background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/L_Background_abv.png?raw=true");
     background-size: 466px 900px;
     background-repeat: no-repeat;
     background-position: 0px center;
-    border: 5px;
     display: grid;
     grid-gap: 0px;
-    grid-template-columns: 1fr, 1fr, 1fr;
-    grid-template-rows: 1fr, 1fr, 1fr, 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr;
     grid-template-areas:"PDF pierce focus"
+                        "heal size move"
                         "PPF pparry evade"
                         "MDF MPF mparry"
                         "SDF SPF sparry";
@@ -417,22 +430,22 @@ input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
 }
 
 .sheet-derived .sheet-stat-container {
-    padding: 10px;
-    width: 130%;
-    position: relative;
-    top: 55%;
-    left: -50%;
+    padding: 0px;
+    width: 95%;
+    height: 75%;
+    position: absolute;
+    top: 23%;
     background: transparent;
-    background-position: center;
-    background-size: 90%;
+    background-position: ;
+    background-size: 100%;
     background-repeat: no-repeat;
     border: none;
-    display: ;
+    display: inline-block;
 }
 
 .sheet-derived .sheet-stat-container input {
     position: relative;
-    top: 45%;
+    top: 55%;
     left: 34%;
     width: 35px;
     font-size: 1.5em;
@@ -440,13 +453,21 @@ input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
     border: none;
 }
 
+.sheet-derived .sheet-grid-element {
+    border: none;
+    position: relative;
+}
+
 .sheet-derived .sheet-stat-container input::-webkit-outer-spin-button,
-.sheet-derived .sheet-stat-container input::-webkit-inner-spin-button {
+.sheet-derived .sheet-stat-container input::-webkit-inner-spin-button,
+.sheet-condition.sheet-grid-element input::-webkit-outer-spin-button,
+.sheet-condition.sheet-grid-element input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.sheet-derived .sheet-stat-container input[type=number] {
+.sheet-derived .sheet-stat-container input[type=number],
+.sheet-condition.sheet-grid-element input[type=number] {
   -moz-appearance: textfield;
 }
 
@@ -457,6 +478,7 @@ input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
 
 .sheet-pdf .sheet-stat-container {
     background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/icon-combat.png?raw=true");
+    background-color: ;
 }
 
 .sheet-derived .sheet-pierce  {
@@ -465,7 +487,7 @@ input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
 }
 
 .sheet-pierce .sheet-stat-container {
-    background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/icon-pierce.png?raw=true");
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/icon-pierce.png?raw=true");
 }
 
 .sheet-derived .sheet-focus {
@@ -475,6 +497,24 @@ input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
 
 .sheet-focus .sheet-stat-container {
     background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/icon-focus.png?raw=true");
+}
+
+.sheet-derived .sheet-heal {
+    grid-area: heal;
+    background: transparent;
+}
+
+.sheet-heal .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/icon-heal.png?raw=true");
+}
+
+.sheet-derived .sheet-move {
+    grid-area: move;
+    background: transparent;
+}
+
+.sheet-move .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/ICON-movement.png?raw=true");
 }
 
 .sheet-derived .sheet-ppf {
@@ -500,7 +540,7 @@ input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
 }
 
 .sheet-evade .sheet-stat-container {
-    background-image: url("");
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/icon-evade.png?raw=true");
 }
 
 .sheet-derived .sheet-mdf {
