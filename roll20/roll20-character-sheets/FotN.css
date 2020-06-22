@@ -98,7 +98,14 @@ textarea {
 }
 
 .sheet-bio label {
-    width: 95%;
+    display: inline-block;
+    width: auto;
+}
+
+.sheet-bio .sheet-voidrunebox {
+    position: absolute;
+    left: 45%;
+    top: 10%;
 }
 
 .sheet-stats {
@@ -107,10 +114,6 @@ textarea {
   background-color: orange;
   background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/BK-stats.png");
   background-size: 100%;
-  display: grid;
-  grid-gap: 4px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .sheet-character .sheet-type {
@@ -119,12 +122,45 @@ textarea {
 }
 
 .sheet-labeltext {
-    font-size: 1.3em;
+    font-size: 1em;
     text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
 }
 
 .sheet-stats label {
-    width: 95%;
+    font-size: 1.2em;
+    width: 20%;
+    height: 61%;
+    display: inline-block;
+}
+
+.sheet-stats .sheet-stat-container input {
+    width: 30px;
+}
+
+.sheet-stats .sheet-stat-container {
+    
+    display: inline-block;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+}
+
+.sheet-stats .sheet-destinybox {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/icon-destiny.png?raw=true");
+}
+
+.sheet-stats .sheet-essencebox {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/icon-essence.png?raw=true");
+}
+
+.sheet-stats .sheet-movebox {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/ICON-movement.png?raw=true");
+}
+
+.sheet-stats .sheet-sizebox {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/icon-size.png?raw=true");
 }
 
 .sheet-skills .sheet-ability-wrapper {
@@ -443,7 +479,7 @@ input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
     display: inline-block;
 }
 
-.sheet-derived .sheet-stat-container input {
+.sheet-stat-container input {
     position: relative;
     top: 55%;
     left: 34%;
@@ -458,15 +494,15 @@ input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
     position: relative;
 }
 
-.sheet-derived .sheet-stat-container input::-webkit-outer-spin-button,
-.sheet-derived .sheet-stat-container input::-webkit-inner-spin-button,
+.sheet-stat-container input::-webkit-outer-spin-button,
+.sheet-stat-container input::-webkit-inner-spin-button,
 .sheet-condition.sheet-grid-element input::-webkit-outer-spin-button,
 .sheet-condition.sheet-grid-element input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.sheet-derived .sheet-stat-container input[type=number],
+.sheet-stat-container input[type=number],
 .sheet-condition.sheet-grid-element input[type=number] {
   -moz-appearance: textfield;
 }
@@ -506,6 +542,15 @@ input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
 
 .sheet-heal .sheet-stat-container {
     background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/icon-heal.png?raw=true");
+}
+
+.sheet-derived .sheet-size {
+    grid-area: size;
+    background: transparent;
+}
+
+.sheet-size .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/icon-size.png?raw=true");
 }
 
 .sheet-derived .sheet-move {

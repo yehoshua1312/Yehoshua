@@ -3,22 +3,23 @@
         <button type="action" name="act_character" >Character</button>
         <button type="action" name="act_current" >Current</button>
     </div>
-    <input type='hidden' class='tabstoggle' name='attr_sheetTab' value='current' />
+    <input type='hidden' class='tabstoggle' name='attr_sheetTab' value='character' />
    
     
     <div class="character">
         <div class="bio ability-box">
-            <label><span class="labeltext">Player Name: </span><input type="text" name="attr_player_name" /></label>
-            <label><span class="labeltext">Character Name: </span><input type="text" name="attr_character_name" /></label>
-            <label><span class="labeltext">Archtype: </span><input type="text" name="attr_archtype" /></label>
+            <label class="playernamebox"><span class="labeltext">Player Name: </span><input type="text" name="attr_player_name" /></label>
+            <label class="charnamebox"><span class="labeltext">Character Name: </span><input type="text" name="attr_character_name" /></label>
+            <label class="archtypebox"><span class="labeltext">Archtype: </span><input type="text" name="attr_archtype" /></label>
+            <label class="levelbox"><span class="labeltext"> Level: </span><input type="number" name="attr_level" /></label>
+            <input type="text" name="attr_voidrune" class="single-char voidrunebox" />
         </div>
         <div class="stats ability-box">
-            <label><span class="labeltext">Size: </span><input type="number" value="4" name="attr_basesize" /></label>
-            <label><span class="labeltext">Level: </span><input type="number" name="attr_level" /></label>
-            <label><span class="labeltext">Move: </span><input type="number" value="4" name="attr_basemove" /></label>
-            <label><span class="labeltext">Essence: </span><input type="number" name="attr_essence" /></label>
-            <label><span class="labeltext">Void Rune: </span><input type="text" name="attr_voidrune" class="single-char" /></label>
-            <label><span class="labeltext">Destiny: </span><input type="number" name="attr_destiny" /></label>
+            <br>
+            <label class="labeltext">Size: <span class="sizebox stat-container"><input type="number" value="4" name="attr_basesize" /></span></label>
+            <label class="labeltext">Move: <span class="movebox stat-container"><input type="number" value="4" name="attr_basemove" /></span></label>
+            <label class="labeltext">Essence: <span class="essencebox stat-container"><input type="number" name="attr_essence" /></span></label>
+            <label class="labeltext">Destiny: <span class="destinybox stat-container"><input type="number" name="attr_destiny" /></span></label>
         </div>
         <div class="skills ability-box">
             <div class="skills ability-wrapper">
@@ -53,13 +54,15 @@
                 </select>
                 <input type="checkbox" class="toggle-show" />
                 <div class="passivedetails showable">
+                    <label class="modlabel labeltext">Description:</label><br><textarea class="passivedesc textbox" name="attr_passives_description"></textarea>
                     <label class="modlabel labeltext">PDF:<input class="mod" type='number' name='attr_passives_pdf' /></label>
                     <label class="modlabel labeltext">Pierce:<input class="mod" type="number" name='attr_passives_pierce' /></label>
                     <label class="modlabel labeltext">Focus:<input class="mod" type="number" name='attr_passives_focus' /></label>
                     <label class="modlabel labeltext">Reach/<br>Range:<input class="mod" type="number" name='attr_passives_reach' /></label>
                     <label class="modlabel labeltext">Heal:<input class="mod" type="number" name='attr_passives_heal' /></label>
+                    <label class="modlabel labeltext">Recover:<input class="mod" type="number" name='attr_passives_recover' /></label>
                     <label class="modlabel labeltext">Size:<input class="mod" type="number" name='attr_passives_size' /></label>
-                    <label class="modlabel labeltext">Move:<input class="mod" type="number" name='attr_epassives_move' /></label>
+                    <label class="modlabel labeltext">Move:<input class="mod" type="number" name='attr_passives_move' /></label>
                     <label class="modlabel labeltext">PPF:<input class="mod" type="number" name='attr_passives_ppf' /></label>
                     <label class="modlabel labeltext">Parry:<input class="mod" type="number" name='attr_passives_pparry' /></label>
                     <label class="modlabel labeltext">Evade:<input class="mod" type="number" name='attr_passives_evade' /></label>
@@ -69,8 +72,6 @@
                     <label class="modlabel labeltext">SDF:<input class="mod" type="number" name='attr_passives_sdf' /></label>
                     <label class="modlabel labeltext">SPF:<input class="mod" type="number" name='attr_passives_spf' /></label>
                     <label class="modlabel labeltext">SParry:<input class="mod" type="number" name='attr_passives_sparry' /></label>
-                    <label class="modlabel labeltext">Heal:<input class="mod" type="number" name='attr_passives_heal' /></label><br>
-                    <label class="modlabel labeltext">Description:</label><br><textarea class="passivedesc textbox" name="attr_passives_description"></textarea>
                 </div>
             </fieldset>
         </div>
@@ -132,6 +133,7 @@
                     <option value="shade">Shade</option>
                     <option value="snare">Snare</option>
                     <option value="verwandlungspell">Verwandlung Spell</option>
+                    <option value="verwandlungalkaspell">Verwandlung Alka Spell</option>
                     <option value="faith">Faith</option>
                     <option value="voidspell">Void Spell</option>
                     <option value="divinespell">Divine Spell</option>
@@ -218,10 +220,14 @@
                 </select>
                 <input type="checkbox" class="toggle-show" />
                 <div class="activedetails showable">
+                    <label class="desclabel labeltext">Description:<textarea name="attr_actives_description" class="activedesc textbox"></textarea></lable>
                     <label class="modlabel labeltext">PDF:<input class="mod" type='number' name='attr_actives_pdf' /></label>
                     <label class="modlabel labeltext">Pierce:<input class="mod" type="number" name='attr_actives_pierce' /></label>
+                    <label class="modlabel labeltext">Reach/<br>Range:<input class="mod" type="number" name='attr_actives_reach' /></label>
                     <label class="modlabel labeltext">Size:<input class="mod" type="number" name='attr_actives_size' /></label>
                     <label class="modlabel labeltext">Move:<input class="mod" type="number" name='attr_actives_move' /></label>
+                    <label class="modlabel labeltext">Heal:<input class="mod" type="number" name='attr_actives_heal' /></label>
+                    <label class="modlabel labeltext">Recover:<input class="mod" type="number" name='attr_actives_recover' /></label>
                     <label class="modlabel labeltext">Focus:<input class="mod" type="number" name='attr_actives_focus' /></label>
                     <label class="modlabel labeltext">PPF:<input class="mod" type="number" name='attr_actives_ppf' /></label>
                     <label class="modlabel labeltext">Parry:<input class="mod" type="number" name='attr_actives_pparry' /></label>
@@ -232,7 +238,6 @@
                     <label class="modlabel labeltext">SDF:<input class="mod" type="number" name='attr_actives_sdf' /></label>
                     <label class="modlabel labeltext">SPF:<input class="mod" type="number" name='attr_actives_spf' /></label>
                     <label class="modlabel labeltext">SParry:<input class="mod" type="number" name='attr_actives_sparry' /></label>
-                    <label class="desclabel labeltext">Description:<textarea name="attr_actives_description" class="activedesc textbox"></textarea></lable>
                 </div>
             </fieldset>
         </div>
@@ -251,6 +256,7 @@
                     <label class="modlabel labeltext">Pierce:<input class="mod" type="number" name='attr_equipment_pierce' /></label>
                     <label class="modlabel labeltext">Reach/<br>Range:<input class="mod" type="number" name='attr_equipment_reach' /></label>
                     <label class="modlabel labeltext">Heal:<input class="mod" type="number" name='attr_equipment_heal' /></label>
+                    <label class="modlabel labeltext">Recover:<input class="mod" type="number" name='attr_equipment_recover' /></label>
                     <label class="modlabel labeltext">Size:<input class="mod" type="number" name='attr_equipment_size' /></label>
                     <label class="modlabel labeltext">Move:<input class="mod" type="number" name='attr_equipment_move' /></label>
                     <label class="modlabel labeltext">Focus:<input class="mod" type="number" name='attr_equipment_focus' /></label>
@@ -317,6 +323,10 @@
             <div class="derived grid-element heal">
                 <label class="derived-stat-label">Heal:</label>
                 <span class="stat-container"><input type="number" name="attr_heal" /></span>
+            </div>
+            <div class="derived grid-element size">
+                <label class="derived-stat-label">Size:</label>
+                <span class="stat-container"><input type="number" name="attr_size" /></span>
             </div>
             <div class="derived grid-element move">
                 <label class="derived-stat-label">Movement:</label>
