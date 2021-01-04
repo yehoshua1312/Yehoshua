@@ -22,7 +22,7 @@ const runes = {
     sowsun: 'https://s3.amazonaws.com/files.d20.io/images/120545329/f8RwcSZMu8hwmUi6FcYIkQ/thumb.png?1586552839', 
     thurisaz: 'https://s3.amazonaws.com/files.d20.io/images/120494433/ebMrXKEikstujwLCujS6SQ/thumb.png?1586547638', 
     kenaz: 'https://s3.amazonaws.com/files.d20.io/images/146909842/_IXpLU-fUWZpDzw4rwokSg/thumb.png?1593392207',
-    eihwas: 'https://s3.amazonaws.com/files.d20.io/images/146911139/5Eqsro-jfRfonKaJvDT2bA/thumb.png?1593392601',
+    Eihwas: 'https://s3.amazonaws.com/files.d20.io/images/146911139/5Eqsro-jfRfonKaJvDT2bA/thumb.png?1593392601',
     mental: 'https://s3.amazonaws.com/files.d20.io/images/147024983/HKKRlmtef_ypAToobJDk3g/thumb.jpg?1593452592',
     physical: 'https://s3.amazonaws.com/files.d20.io/images/147025001/tscpoUdwCsZMKyMbiYKHBA/thumb.jpg?1593452599',
     spiritual: 'https://s3.amazonaws.com/files.d20.io/images/147025012/ffTI2xttaSZ8AVGWZcDcUw/thumb.jpg?1593452605',
