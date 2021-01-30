@@ -22,7 +22,7 @@ const runes = {
     sowsun: 'https://s3.amazonaws.com/files.d20.io/images/120545329/f8RwcSZMu8hwmUi6FcYIkQ/thumb.png?1586552839', 
     thurisaz: 'https://s3.amazonaws.com/files.d20.io/images/120494433/ebMrXKEikstujwLCujS6SQ/thumb.png?1586547638', 
     kenaz: 'https://s3.amazonaws.com/files.d20.io/images/146909842/_IXpLU-fUWZpDzw4rwokSg/thumb.png?1593392207',
-    Eihwas: 'https://s3.amazonaws.com/files.d20.io/images/146911139/5Eqsro-jfRfonKaJvDT2bA/thumb.png?1593392601',
+    eihwas: 'https://s3.amazonaws.com/files.d20.io/images/146911139/5Eqsro-jfRfonKaJvDT2bA/thumb.png?1593392601',
     mental: 'https://s3.amazonaws.com/files.d20.io/images/147024983/HKKRlmtef_ypAToobJDk3g/thumb.jpg?1593452592',
     physical: 'https://s3.amazonaws.com/files.d20.io/images/147025001/tscpoUdwCsZMKyMbiYKHBA/thumb.jpg?1593452599',
     spiritual: 'https://s3.amazonaws.com/files.d20.io/images/147025012/ffTI2xttaSZ8AVGWZcDcUw/thumb.jpg?1593452605',
@@ -265,10 +265,10 @@ on('change:attribute', function(obj) {
 on('chat:message', (msg) => {
     if ('api' === msg.type && /!build\b/i.test(msg.content)) {
         log('start');
-        const section_field = (section, field, id = ':') => `repeating_${section}${id === ':' ? id : `_${id}_`}${section}_${field}`;
+        //const section_field = (section, field, id = ':') => `repeating_${section}${id === ':' ? id : `_${id}_`}${section}_${field}`;
         const args = msg.content.split(/\s+--/);
         let bag = [];
-        let i = 0;
+        //let i = 0;
         //locate the character if it exists
         let theCharacter = findObjs({
             _type: "character",
@@ -277,16 +277,18 @@ on('chat:message', (msg) => {
         
         if (theCharacter) { //if the character exists
             //initialize rune with the first rune in the repeating_actives section
-            let rune = getAttrByName(theCharacter.id, `repeating_actives_$${i}_rune`);
-            while (true) { //it's a whole thing, don't ask
+            let runes = getAttrByName(theCharacter.id, 'runeBag');
+            log(runes);
+            if (!(_.isArray(runes))) {
+                runes = runes.split(',');
+                log(runes);
+            }
+            for (const rune of runes) { //it's a whole thing, don't ask
+                log(rune);
                 if (rune != 'void') { //ignore anything bound to the void rune
                     bag.push(rune); //put the rune in the bag
                 }
-                i++; //index rune
-                rune = getAttrByName(theCharacter.id, `repeating_actives_$${i}_rune`); //get the next rune
-                if (i>23) {break}; //do this 24 times because that's the maximum runes you can have in your bag. I know this is kludgy
-                                    //I'm working on it
-            };
+            }
         } else if (args[2]) { //if the character doesn't exist, but a list has been provided
             bag = args[2].split(/\,\s*/); //split the list into an array and put it in the bag
         } else {

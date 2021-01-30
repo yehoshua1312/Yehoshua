@@ -7,6 +7,7 @@
 .sheet-hidden, 
 .sheet-character,
 .sheet-current,
+.sheet-rgs3,
 .sheet-lifepath {
     display: none;
 }
@@ -14,13 +15,14 @@
 .sheet-tabstoggle[value="character"] ~ div.sheet-character {
   display: grid;
   width: 800px;
-  height: 1023px;
+  height: 1268px;
   grid-gap: 0px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 2fr 3fr 2fr 1.55fr;
+  grid-template-rows: 1fr 2fr 3fr 3fr 2fr 1.55fr;
   grid-template-areas:"bio stats"
                       "skills passives"
                       "actives actives"
+                      "socials socials"
                       "equipment equipment"
                       "notes notes";
 }
@@ -43,6 +45,26 @@
                         "derived aura";
 }
 
+.sheet-tabstoggle[value="rgs3"] ~ div.sheet-rgs3 {
+    display: grid;
+    width: 800px;
+    height: 1050px;
+    background-color: yellow;
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/rgs3sheet.png?raw=true");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    grid-gap: 0px;
+    grid-template-columns:5% 45% 43.5% 6.5%;
+    grid-template-rows: 5% 26% 26.5% 26% 14.5% 2%;
+    grid-template-areas:"topborder topborder topborder topborder"
+                        "leftborder rgs3bio rgs3derived rightborder"
+                        "leftborder rgs3actives rgs3socials rightborder"
+                        "leftborder rgs3passives rgs3skills rightborder"
+                        "leftborder rgs3equip rgs3equip rightborder"
+                        "bottomborder bottomborder bottomborder bottomborder";
+    
+}
+
 /*.sheet-tabstoggle[value="character"] ~ div.sheet-character,
 .sheet-tabstoggle[value="conditions"] ~ div.sheet-conditions,
 .sheet-tabstoggle[value="lifepath"] ~ div.sheet-lifepath {
@@ -52,7 +74,7 @@
 /*----------------- GENERAL CSS ------------------*/
 input {
     display: inline-block;
-    width: 160px;
+    width: 16px;
 }
 
 input[type="number"] {
@@ -76,19 +98,154 @@ textarea {
     width: 20px;
 }
 
-/*------------- Section-specific CSS -------------*/
-    /*-------------Character Page---------------------*/
+.sheet-labeltext {
+    font-size: 1em;
+    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+}
+
+.sheet-checkbox, .sheet-toggle-show {
+    display: inline-block;
+    width: 10px;
+}
+
+input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
+    display:none;
+}
+
 .sheet-ability-box {
     overflow: auto;
     background-repeat: no-repeat;
-    border: 2px solid black;
+    border: 0px solid black;
 }
 
-.sheet-ability-box input, textarea {
+input.sheet-stat-container::-webkit-outer-spin-button, 
+input.sheet-stat-container::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input.sheet-stat-container {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid black;
+    width: 25px;
+    font-size: 1em;
+}
+
+/*-------------- Function-Specific CSS ----------------*/
+
+        /*Rune Dropdown CSS*/
+.sheet-rune-container {
+    width: 50px;
+    display: inline-block;
+}
+
+.sheet-type-container {
+    width: 50px;
+    display: inline-block;
+}
+
+.sheet-rune-child, .sheet-type-child {
+    vertical-align: middle;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    padding: 1px;
+    background: white;
+}
+
+
+.sheet-rune-child input, .sheet-rune-child input + span, 
+.sheet-type-child input, .sheet-type-child input + span {
+    display: none;
+}
+
+.sheet-rune-child:hover {
+    background: LightGray;
+    position:absolute;
+    width: 80px;
+    height: auto;
+    z-index: 1;
+    top: 0;
+    padding: 0px;
+}
+
+.sheet-type-child:hover {
+    background: LightGray;
+    position:absolute;
+    width: 90px;
+    height: auto;
+    z-index: 1;
+    top: 0;
+    padding: 0px;
+}
+
+.sheet-rune-child:hover input,
+.sheet-rune-child:hover input + span {
+    display: inline-block;
+    width: auto;
+    margin-left: 5px;
+}
+
+.sheet-type-child:hover input {
+    display: inline;
+    width: auto;
+    margin-left: 5px;
+}
+
+.sheet-rune-child:hover input + span {
+   margin-right: 0px
+}
+
+.sheet-type-child:hover input + span {
+   display: inline;
+   margin-right: 0px
+}
+
+/*.sheet-rune-child:hover span {
+    display: inline;
+}*/
+
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-void:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-fehu:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-tiwaz:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-berkano:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-ehwo:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-mann:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-claguz:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-ing:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-dagaz:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-othala:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-hagalaz:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-naudhneed:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-isaice:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-jethe:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-eihwas:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-pertho:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-elhaz:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-sowsun:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-thurisaz:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-cansuz:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-raidho:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-kenaz:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-gebgift:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-wunjo:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-uruz:checked + span,
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-physical:checked + span, 
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-mental:checked + span, 
+.sheet-rune-child:not(:hover) input.sheet-rune.sheet-spiritual:checked + span {
+    display: inline-block;
+}
+
+        /* End Rune Dropdown */
+        
+/*------------- Section-specific CSS -------------*/
+    /*-------------Character Page---------------------*/
+
+.sheet-character .sheet-ability-box input, textarea {
     background: rgba(255, 255, 255, 1);
 }
 
-.sheet-bio {
+.sheet-character .sheet-bio {
   grid-area: bio;
   height: 130px;
   background-color: olive;
@@ -97,18 +254,18 @@ textarea {
   background-opacity: 0.5;
 }
 
-.sheet-bio label {
+.sheet-character .sheet-bio label {
     display: inline-block;
     width: auto;
 }
 
-.sheet-bio .sheet-voidrunebox {
+.sheet-character .sheet-bio .sheet-voidrunebox {
     position: absolute;
     left: 45%;
     top: 10%;
 }
 
-.sheet-stats {
+.sheet-character .sheet-stats {
   grid-area: stats;
   height: 130px;
   background-color: orange;
@@ -121,23 +278,18 @@ textarea {
     width: 125px;
 }
 
-.sheet-labeltext {
-    font-size: 1em;
-    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
-}
-
-.sheet-stats label {
+.sheet-character .sheet-stats label {
     font-size: 1.2em;
     width: 20%;
     height: 61%;
     display: inline-block;
 }
 
-.sheet-stats .sheet-stat-container input {
-    width: 30px;
+.sheet-character .sheet-stats .sheet-stat-container input {
+    width: 10px;
 }
 
-.sheet-stats .sheet-stat-container {
+.sheet-character .sheet-stats .sheet-stat-container {
     
     display: inline-block;
     background-size: 100%;
@@ -147,23 +299,23 @@ textarea {
     width: 100%;
 }
 
-.sheet-stats .sheet-destinybox {
+.sheet-character .sheet-stats .sheet-destinybox {
     background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/icon-destiny.png?raw=true");
 }
 
-.sheet-stats .sheet-essencebox {
+.sheet-character .sheet-stats .sheet-essencebox {
     background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/icon-essence.png?raw=true");
 }
 
-.sheet-stats .sheet-movebox {
+.sheet-character .sheet-stats .sheet-movebox {
     background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/ICON-movement.png?raw=true");
 }
 
-.sheet-stats .sheet-sizebox {
+.sheet-character .sheet-stats .sheet-sizebox {
     background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/icon-size.png?raw=true");
 }
 
-.sheet-skills .sheet-ability-wrapper {
+.sheet-character .sheet-skills .sheet-ability-wrapper {
     width: 80%;
     position: relative;
     margin-right: auto;
@@ -172,7 +324,7 @@ textarea {
     display: block;
 }
 
-.sheet-skills {
+.sheet-character .sheet-skills {
   grid-area: skills;
   height: 223px;
   background-color: brown;
@@ -180,20 +332,20 @@ textarea {
   background-size: 100%;
 }
 
-.sheet-skills .sheet-skillname {
+.sheet-character .sheet-skills .sheet-skillname {
    display: inline-block;
    width: 70%;
 }
 
-.sheet-skills .sheet-skillrank {
+.sheet-character .sheet-skills .sheet-skillrank {
     display: inline;
 }
 
-.sheet-skills .sheet-textbox {
+.sheet-character .sheet-skills .sheet-textbox {
     width: 85%;
 }
 
-.sheet-passives {
+.sheet-character .sheet-passives {
   grid-area: passives;
   height: 223px;
   background-color: green;
@@ -201,17 +353,17 @@ textarea {
   background-size: 100%;
 }
 
-.sheet-passives .sheet-passivename {
+.sheet-character .sheet-passives .sheet-passivename {
     display: inline-block;
     width: 50%;
 }
 
-.sheet-passives .sheet-textbox {
+.sheet-character .sheet-passives .sheet-textbox {
     display: inline-block;
     width: 85%;
 }
 
-.sheet-actives {
+.sheet-character .sheet-actives {
   grid-area: actives;
   height: 307px;
   background-color: coral;
@@ -219,57 +371,60 @@ textarea {
   background-size: 100%;
 }
 
-.sheet-actives .sheet-activename {
+.sheet-character .sheet-socials {
+  grid-area: socials;
+  height: 307px;
+  background-color: coral;
+  background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/BK-actives.png?raw=true");
+  background-size: 100%;
+}
+
+.sheet-character .sheet-actives .sheet-activename, .sheet-socials .sheet-socialname {
     display: inline-block;
     width: 30%;
 }
 
-.sheet-character .sheet-rune {
-    display: inline-block;
-    width: 10%;
-}
-
-.sheet-actives .sheet-pmeta {
+.sheet-character .sheet-actives .sheet-pmeta, .sheet-socials .sheet-pmeta {
     display: inline-block;
     width: 75px;
     color: red;
 }
 
-.sheet-actives .sheet-mmeta {
+.sheet-character .sheet-actives .sheet-mmeta, .sheet-socials .sheet-mmeta {
     display: inline-block;
     width: 75px;
     color: blue;
 }
 
-.sheet-actives .sheet-smeta {
+.sheet-character .sheet-actives .sheet-smeta, .sheet-socials .sheet-smeta {
     display: inline-block;
     width: 75px;
     color: green;
 }
 
-.sheet-actives .sheet-activedesc {
+.sheet-character .sheet-actives .sheet-activedesc, .sheet-socials .sheet-socialdesc {
     display: inline-block;
     width: 100%;
 }
 
-.sheet-equipment {
+.sheet-character .sheet-equipment {
   grid-area: equipment;
   background-color: grey;
   background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/BK-equip.png?raw=true");
   background-size: 100%;
 }
 
-.sheet-equipment .sheet-equipname {
+.sheet-character .sheet-equipment .sheet-equipname {
     display: inline-block;
     width: 20%;
 }
 
-.sheet-equipment .sheet-textbox {
+.sheet-character .sheet-equipment .sheet-textbox {
     display: inline-block;
     width: 60%;
 }
 
-.sheet-notes {
+.sheet-character .sheet-notes {
     grid-area: notes;
     background-color: teal;
     background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/BK-notes.png?raw=true");
@@ -277,13 +432,13 @@ textarea {
     width: 99.5%;
 }
 
-.sheet-notes .sheet-notebox {
+.sheet-character .sheet-notes .sheet-notebox {
     resize: vertical;
     width: 70%;
     height: 100px;
 }
 
-.sheet-notes .sheet-labeltext {
+.sheet-character .sheet-notes .sheet-labeltext {
     width: 10%;
 }
 
@@ -300,11 +455,6 @@ textarea {
     font-size: 1em;
 }
 
-.sheet-character .sheet-checkbox, .sheet-character .sheet-toggle-show {
-    display: inline-block;
-    width: 10px;
-}
-
 .sheet-equip .repeating_equipment {
     display: inline-block;
     width: 100%;
@@ -315,10 +465,6 @@ textarea {
     width: 50%;
     vertical-align: top;
     height: 18px;
-}
-
-input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
-    display:none;
 }
 
     /*----------------------Current Page------------------*/
@@ -449,12 +595,13 @@ input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
     display: grid;
     grid-gap: 0px;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr;
+    grid-template-rows: 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr;
     grid-template-areas:"PDF pierce focus"
                         "heal size move"
                         "PPF pparry evade"
                         "MDF MPF mparry"
-                        "SDF SPF sparry";
+                        "SDF SPF sparry"
+                        "SoAF SoDF SoPR";
 }
 
 .sheet-derived-stat-label {
@@ -479,7 +626,7 @@ input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
     display: inline-block;
 }
 
-.sheet-stat-container input {
+.sheet-derived .sheet-stat-container input {
     position: relative;
     top: 55%;
     left: 34%;
@@ -640,4 +787,356 @@ input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
 
 .sheet-sparry .sheet-stat-container {
     background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/icon-sparry.png?raw=true");
+}
+
+.sheet-derived .sheet-soaf {
+    grid-area: SoAF;
+    background: transparent;
+}
+
+.sheet-soaf .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/icon-sparry.png?raw=true");
+}
+
+.sheet-derived .sheet-sodf {
+    grid-area: SoDF;
+    background: transparent;
+}
+
+.sheet-sodf .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/icon-sparry.png?raw=true");
+}
+
+.sheet-derived .sheet-sopr {
+    grid-area: SoPR;
+    background: transparent;
+}
+
+.sheet-sopr .sheet-stat-container {
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/raw/master/roll20/roll20-character-sheets/images/icon-sparry.png?raw=true");
+}
+
+    /*--------------rgs3 Page---------------------*/
+.sheet-rgs3 .sheet-bio {
+    grid-area: rgs3bio;
+    border: 0px solid yellow;
+}
+
+.sheet-rgs3 .sheet-actives {
+    grid-area: rgs3actives;
+    border: 0px solid olive;
+    font-size: 0.8em;
+}
+
+.sheet-rgs3 .sheet-socials {
+    grid-area: rgs3socials;
+    border: 0px solid blue;
+    font-size: 0.8em;
+}
+
+.sheet-rgs3 .sheet-passives {
+    grid-area: rgs3passives;
+    border: 0px solid blue;
+    font-size: 0.8em;
+}
+
+.sheet-rgs3 .sheet-skills {
+    grid-area: rgs3skills;
+    border: 0px solid green;
+    font-size: 0.9em;
+}
+
+.sheet-rgs3 .sheet-equipment {
+    grid-area: rgs3equip;
+    border: 0px solid orange;
+    font-size: 0.9em;
+}
+
+.sheet-rgs3 .sheet-currentstats {
+    grid-area: rgs3derived;
+    border: 0px solid brown;
+}
+
+.sheet-rgs3 .sheet-text-container {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.sheet-rgs3 .sheet-stat-container input {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.5);
+    position: relative;
+    width: 25px;
+    
+}
+
+.sheet-rgs3 input.sheet-stat-container::-webkit-outer-spin-button, 
+.sheet-rgs3 input.sheet-stat-container::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.sheet-rgs3 .sheet-playernamebox {
+    width: 22%;
+    position: relative;
+    float: left;
+    top: 0%;
+    left: 37%;
+}
+
+.sheet-rgs3 .sheet-charnamebox {
+    width: 24%;
+    position: relative;
+    float: left;
+    top: 13%;
+    left: 13%;
+}
+
+.sheet-rgs3 .sheet-levelbox {
+    top: 9.5%;
+    left: 36%;
+}
+
+.sheet-rgs3 .sheet-essencebox input {
+    top: 35%;
+    left: -43%;
+}
+
+.sheet-rgs3 .sheet-destinybox input {
+    top: 35%;
+    left: -22%;
+}
+
+.sheet-rgs3 .sheet-sizebox input {
+    top: 35%;
+    left: -1%;
+}
+
+.sheet-rgs3 .sheet-healbox input {
+    top: 64%;
+    left: -61.5%;
+    background: transparent;
+    border: none;
+}
+
+.sheet-rgs3 .sheet-movebox input {
+    top: 62%;
+    left: -46.5%;
+    background: transparent;
+    border: none;
+}
+
+.sheet-rgs3 .sheet-focusbox input {
+    top: 52%;
+    left: 64%;
+    background: transparent;
+    border: none;
+}
+
+.sheet-rgs3 .sheet-archtypebox {
+    position: relative;
+    top: 74%;
+    left: 38%;
+    width: 50%;
+}
+
+    /*--------------------Derived Stats----------------------*/
+
+.sheet-rgs3 .sheet-currentstats .sheet-statgrid {
+    display: grid;
+    position: relative;
+    border: 0px solid black;
+    width: 47%;
+    height: 72%;
+    left: 52%;
+    top: 4%;
+    grid-gap: 0px;
+    grid-template-columns: 30% 45% 25%;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:"SoAF SoPR SoDF"
+                        "PDF PPF PParry"
+                        "MDF MPF MParry"
+                        "SDF SPF SParry";
+}
+
+.sheet-rgs3 .sheet-currentstats .sheet-derived input {
+    left: 25%;
+    top: 50%;
+    font-size: .85em;
+    height: 39%;
+    width: 40%;
+    background: transparent;
+    font-weight: bold;
+    border: none;
+    text-align: center;
+}
+
+.sheet-rgs3 .sheet-currentstats .sheet-soaf {
+    grid-area: SoAF;
+}
+
+.sheet-rgs3 .sheet-currentstats .sheet-sopr {
+    grid-area: SoPR;
+}
+
+.sheet-rgs3 .sheet-currentstats .sheet-pdf {
+    grid-area: PDF;
+}
+
+.sheet-rgs3 .sheet-currentstats .sheet-ppf {
+    grid-area: PPF;
+}
+
+.sheet-rgs3 .sheet-currentstats .sheet-pparry {
+    grid-area: PParry;
+}
+
+.sheet-rgs3 .sheet-currentstats .sheet-mdf {
+    grid-area: MDF;
+}
+
+.sheet-rgs3 .sheet-currentstats .sheet-mpf {
+    grid-area: MPF;
+}
+
+.sheet-rgs3 .sheet-currentstats .sheet-mparry {
+    grid-area: MParry;
+}
+
+.sheet-rgs3 .sheet-currentstats .sheet-sdf {
+    grid-area: SDF;
+}
+
+.sheet-rgs3 .sheet-currentstats .sheet-spf {
+    grid-area: SPF;
+}
+
+.sheet-rgs3 .sheet-currentstats .sheet-sparry {
+    grid-area: SParry;
+}
+
+    /*---------------------Repeating Sections----------------*/
+.sheet-rgs3 .sheet-type {
+    display: inline-block;
+    width: 15%;
+}
+
+.sheet-rgs3 .sheet-socialtype {
+    display: inline-block;
+    width: 25%;
+    font-size: 0.8em;
+    height: 20px;
+}
+
+.sheet-rgs3 .sheet-passivetype {
+    display: inline-block;
+    width: 25%;
+    font-size: 0.8em;
+    height: 20px;
+}
+
+.sheet-rgs3 .sheet-modlabel {
+    display: inline-block;
+    width: 30px;
+    font-size: .8em;
+}
+
+.sheet-rgs3 .sheet-desclabel {
+    display: inline-block;
+    width: 95%;
+    font-size: 0.8em;
+}
+
+.sheet-rgs3 .sheet-reach {
+    line-height: 90%;
+}
+
+.sheet-rgs3 .sheet-desc {
+    display: inline-block;
+    font-size: 1em;
+    height: 12px;
+    width: 94%;
+}
+
+/*.sheet-rgs3 .sheet-equip .sheet-textbox {
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
+    height: 18px;
+}*/
+
+.sheet-rgs3 .sheet-actives .sheet-activename {
+    display: inline-block;
+    width: 55%;
+    height: 18px;
+    font-size: 0.8em;
+}
+
+.sheet-rgs3 .sheet-socials .sheet-socialname {
+    display: inline-block;
+    width: 45%;
+    height: 18px;
+    font-size: 0.8em;
+}
+
+.sheet-rgs3 .sheet-skills .sheet-skillname {
+    display: inline-block;
+    width: 45%;
+    height: 18px;
+    font-size: 0.8em;
+}
+
+.sheet-rgs3 .sheet-equipment .sheet-equipname {
+    display: inline-block;
+    width: 20%;
+    height: 18px;
+    font-size: 0.8em;
+}
+
+.sheet-rgs3 .sheet-equipdesc {
+    display: inline-block;
+    font-size: 1em;
+    height: 12px;
+    width: 70%;
+}
+
+.sheet-rgs3 .sheet-pmeta {
+    display: inline-block;
+    width: 31%;
+    color: red;
+    font-size: 0.9em;
+    height: 20px;
+}
+
+.sheet-rgs3 .sheet-mmeta {
+    display: inline-block;
+    width: 31%;
+    color: blue;
+    font-size: 0.8em;
+    height: 20px;
+}
+
+.sheet-rgs3 .sheet-smeta {
+    display: inline-block;
+    width: 31%;
+    color: green;
+    font-size: 0.8em;
+    height: 20px;
+}
+
+.sheet-rgs3 .sheet-passives .sheet-passivename {
+    display: inline-block;
+    width: 60%;
+    height: 18px;
+    font-size: 0.8em;
+}
+
+.sheet-rgs3 .sheet-passives .sheet-textbox {
+    display: inline-block;
+    width: 95%;
+}
+
+.sheet-rgs3 .sheet-skillrank {
+    height: 18px;
+    font-size: 0.8em;
 }
