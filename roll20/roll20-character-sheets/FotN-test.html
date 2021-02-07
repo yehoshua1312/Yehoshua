@@ -1,6 +1,10 @@
 <input type="hidden" name="attr_runeBag" />
 <div class="sheet-container">
     <div class="tabs">
+        <input type="radio" id='rgs2' name='attr_gametype' value='rgs2'>
+        <span for='rgs2'>RGS2</span>
+        <input type="radio" id='rgs3' name='attr_gametype' value='rgs3'>
+        <span for='rgs2'>RGS3</span>
         <button type="action" name="act_character" >Character</button>
         <button type="action" name="act_current" >Current</button>
         <button type="action" name="act_rgs3" >RGS3</button>
@@ -8,7 +12,7 @@
     <input type='hidden' class='tabstoggle' name='attr_sheetTab' value='rgs3' />
    
     
-    <!--<div class="character">
+    <div class="character">
         <div class="bio ability-box">
             <label class="playernamebox"><span class="labeltext">Player Name: </span><input type="text" name="attr_player_name" /></label>
             <label class="charnamebox"><span class="labeltext">Character Name: </span><input type="text" name="attr_character_name" /></label>
@@ -45,7 +49,7 @@
             <fieldset class="repeating_passives">
                 <input class="checkbox" type="checkbox" name="attr_passives_toggle" value="1" />
                 <input class="passivename" type="text" name="attr_passives_name" />
-                <select class="passivetype type" name="attr_passives_type">
+                <select class="type type" name="attr_passives_type">
                     <option value="feat">Feat</option>
                     <option value="enchantment">Enchantment</option>
                     <option value="rune">Rune</option>
@@ -97,85 +101,85 @@
                         <input type="checkbox" name="attr_void" class="rune void" value="void" />
                         <span>&#x16F1;</span>
                         <input type="checkbox" name="attr_fehu" class="rune fehu" value="fehu" />
-                        <span>&#x16A0;</span>
+                        <span class="green">&#x16A0;</span>
                         <input type="checkbox" name="attr_uruz" class="rune uruz" value="uruz" />
-                        <span>&#x16A2;</span>
+                        <span class="green">&#x16A2;</span>
                         <input type="checkbox" name="attr_thurisaz" class="rune thurisaz" value="thurisaz" />
-                        <span>&#x16A6;</span>
+                        <span class="green">&#x16A6;</span>
                         <input type="checkbox" name="attr_cansuz" class="rune cansuz" value="cansuz" />
-                        <span>&#x16A8;</span>
+                        <span class="green">&#x16A8;</span>
                         <input type="checkbox" name="attr_raidho" class="rune raidho" value="raidho" />
-                        <span>&#x16B1;</span>
+                        <span class="green">&#x16B1;</span>
                         <input type="checkbox" name="attr_kenaz" class="rune kenaz" value="kenaz" />
-                        <span>&#x16B2;</span>
+                        <span class="green">&#x16B2;</span>
                         <input type="checkbox" name="attr_gebgift" class="rune gebgift" value="gebgift" />
-                        <span>&#x16B7;</span>
+                        <span class="green">&#x16B7;</span>
                         <input type="checkbox" name="attr_wunjo" class="rune wunjo" value="wunjo" />
-                        <span>&#x16B9;</span>
+                        <span class="green">&#x16B9;</span>
                         <input type="checkbox" name="attr_hagalaz" class="rune hagalaz" value="hagalaz" />
-                        <span>&#x16BA;</span>
+                        <span class="blue">&#x16BA;</span>
                         <input type="checkbox" name="attr_naudhneed" class="rune naudhneed" value="naudhneed" />
-                        <span>&#x16BE;</span>
+                        <span class="blue">&#x16BE;</span>
                         <input type="checkbox" name="attr_isaice" class="rune isaice" value="isaice" />
-                        <span>&#x16C1;</span>
+                        <span class="blue">&#x16C1;</span>
                         <input type="checkbox" name="attr_jethe" class="rune jethe" value="jethe" />
-                        <span>&#x16C3;</span>
+                        <span class="blue">&#x16C3;</span>
                         <input type="checkbox" name="attr_eihwas" class="rune eihwas" value="eihwas" />
-                        <span>&#x16C7;</span>
+                        <span class="blue">&#x16C7;</span>
                         <input type="checkbox" name="attr_pertho" class="rune pertho" value="pertho" />
-                        <span>&#x16C8;</span>
+                        <span class="blue">&#x16C8;</span>
                         <input type="checkbox" name="attr_elhaz" class="rune elhaz" value="elhaz" />
-                        <span>&#x16C9;</span>
+                        <span class="blue">&#x16C9;</span>
                         <input type="checkbox" name="attr_sowsun" class="rune sowsun" value="sowsun" />
-                        <span>&#x16CA;</span>
+                        <span class="blue">&#x16CA;</span>
                         <input type="checkbox" name="attr_tiwaz" class="rune tiwaz" value="tiwaz" />
-                        <span>&#x16CF;</span>
+                        <span class="red">&#x16CF;</span>
                         <input type="checkbox" name="attr_berkano" class="rune berkano" value="berkano" />
-                        <span>&#x16D2;</span>
+                        <span class="red">&#x16D2;</span>
                         <input type="checkbox" name="attr_ehwo" class="rune ehwo" value="ehwo" />
-                        <span>&#x16D6;</span>
+                        <span class="red">&#x16D6;</span>
                         <input type="checkbox" name="attr_mann" class="rune mann" value="mann" />
-                        <span>&#x16D7;</span>
+                        <span class="red">&#x16D7;</span>
                         <input type="checkbox" name="attr_claguz" class="rune claguz" value="claguz" />
-                        <span>&#x16D9;</span>
+                        <span class="red">&#x16D9;</span>
                         <input type="checkbox" name="attr_dagaz" class="rune dagaz" value="dagaz" />
-                        <span>&#x16DE;</span>
+                        <span class="red">&#x16DE;</span>
                         <input type="checkbox" name="attr_ing" class="rune ing" value="ing" />
-                        <span>&#x16DD;</span>
+                        <span class="red">&#x16DD;</span>
                         <input type="checkbox" name="attr_othala" class="rune othala" value="othala" />
-                        <span>&#x16DF;</span>
+                        <span class="red">&#x16DF;</span>
                         <input type="checkbox" name="attr_physical" class="rune physical" value="physical" />
-                        <span style='color:red'>&#x258B;</span>
+                        <span  style="font-size:0.7em" class="red">&#x258B;</span>
                         <input type="checkbox" name="attr_mental" class="rune mental" value="mental" />
-                        <span style='color:blue'>&#x258B;</span>
+                        <span  style="font-size:0.7em" class="blue">&#x258B;</span>
                         <input type="checkbox" name="attr_spiritual" class="rune spiritual" value="spiritual" />
-                        <span style='color:green'>&#x258B;</span>
+                        <span  style="font-size:0.7em" class="green">&#x258B;</span>
                     </div>
                 </div>
                 <input class="activename" type="text" name="attr_avtivename" />
                 <div class="type-container">
                     <div class="type-child">
-                        <input type="checkbox" name="attr_manoeuvre" class="activetype manoeuvre" value="manoeuvre" /><span>Manoeuvre</span>
-                        <input type="checkbox" name="attr_stance" class="activetype stance" value="stance" /><span>Stance<br></span>
-                        <input type="checkbox" name="attr_interrupt" class="activetype interrupt" value="interrupt" /><span>Interrupt</span>
-                        <input type="checkbox" name="attr_spell" class="rune activetype" value="spell" /><span>Spell<br></span>
-                        <input type="checkbox" name="attr_feat" class="activetype feat" value="feat" /><span>Feat</span>
-                        <input type="checkbox" name="attr_alka" class="activetype alka" value="alka" /><span>Alka<br></span>
-                        <input type="checkbox" name="attr_runic" class="activetype runic" value="runic" /><span>Rune</span>
-                        <input type="checkbox" name="attr_seith" class="activetype seith" value="seith" /><span>Seith<br></span>
-                        <input type="checkbox" name="attr_song" class="activetype song" value="song" /><span>Song</span>
-                        <input type="checkbox" name="attr_verwandlung" class="activetype verwandlung" value="verwandlung" /><span>Verwandlung<br></span>
-                        <input type="checkbox" name="attr_shapechange" class="activetype shapechange" value="shapechange" /><span>Shapechange</span>
-                        <input type="checkbox" name="attr_transform" class="activetype transform" value="transform" /><span>Transform<br></span>
-                        <input type="checkbox" name="attr_divine" class="activetype divine" value="divine" /><span>Divine</span>
-                        <input type="checkbox" name="attr_gate" class="activetype gate" value="gate" /><span>Gate<br></span>
-                        <input type="checkbox" name="attr_shade" class="activetype shade" value="shade" /><span>Shade</span>
-                        <input type="checkbox" name="attr_faith" class="activetype faith" value="faith" /><span>Faith<br></span>
-                        <input type="checkbox" name="attr_snare" class="activetype snare" value="snare" /><span>Snare</span>
-                        <input type="checkbox" name="attr_void" class="activetype void" value="void" /><span>void<br></span>
-                        <input type="checkbox" name="attr_creation" class="activetype creation" value="creation" /><span>Creation</span>
-                        <input type="checkbox" name="attr_providence" class="activetype providence" value="providence" /><span>Providence<br></span>
-                        <input type="checkbox" name="attr_unseelie" class="activetype unseelie" value="unseelie" /><span>Unseelie</span>
+                        <input type="checkbox" name="attr_manoeuvre" class="type manoeuvre" value="manoeuvre" /><span>Manoeuvre</span>
+                        <input type="checkbox" name="attr_stance" class="type stance" value="stance" /><span>Stance<br></span>
+                        <input type="checkbox" name="attr_interrupt" class="type interrupt" value="interrupt" /><span>Interrupt</span>
+                        <input type="checkbox" name="attr_spell" class="rune type" value="spell" /><span>Spell<br></span>
+                        <input type="checkbox" name="attr_feat" class="type feat" value="feat" /><span>Feat</span>
+                        <input type="checkbox" name="attr_alka" class="type alka" value="alka" /><span>Alka<br></span>
+                        <input type="checkbox" name="attr_runic" class="type runic" value="runic" /><span>Rune</span>
+                        <input type="checkbox" name="attr_seith" class="type seith" value="seith" /><span>Seith<br></span>
+                        <input type="checkbox" name="attr_song" class="type song" value="song" /><span>Song</span>
+                        <input type="checkbox" name="attr_verwandlung" class="type verwandlung" value="verwandlung" /><span>Verwandlung<br></span>
+                        <input type="checkbox" name="attr_shapechange" class="type shapechange" value="shapechange" /><span>Shapechange</span>
+                        <input type="checkbox" name="attr_transform" class="type transform" value="transform" /><span>Transform<br></span>
+                        <input type="checkbox" name="attr_divine" class="type divine" value="divine" /><span>Divine</span>
+                        <input type="checkbox" name="attr_gate" class="type gate" value="gate" /><span>Gate<br></span>
+                        <input type="checkbox" name="attr_shade" class="type shade" value="shade" /><span>Shade</span>
+                        <input type="checkbox" name="attr_faith" class="type faith" value="faith" /><span>Faith<br></span>
+                        <input type="checkbox" name="attr_snare" class="type snare" value="snare" /><span>Snare</span>
+                        <input type="checkbox" name="attr_void" class="type void" value="void" /><span>void<br></span>
+                        <input type="checkbox" name="attr_creation" class="type creation" value="creation" /><span>Creation</span>
+                        <input type="checkbox" name="attr_providence" class="type providence" value="providence" /><span>Providence<br></span>
+                        <input type="checkbox" name="attr_unseelie" class="type unseelie" value="unseelie" /><span>Unseelie</span>
                     </div>
                 </div>
                 <select name="attr_pmeta" class="pmeta metatag">
@@ -311,64 +315,66 @@
                 <input class="checkbox" type="checkbox" name="attr_socials_toggle" value="1" />
                 <div class="rune-container">
                     <div class="rune-child">
-                        <input type="checkbox" name="attr_void" class="rune void" value="void" /><span>&#x16F1;</span>
-                        <input type="checkbox" name="attr_fehu" class="rune fehu" value="fehu" /><span>&#x16A0;</span>
+                        <input type="checkbox" name="attr_void" class="rune void" value="void" />
+                        <span>&#x16F1;</span>
+                        <input type="checkbox" name="attr_fehu" class="rune fehu" value="fehu" />
+                        <span class="green">&#x16A0;</span>
                         <input type="checkbox" name="attr_uruz" class="rune uruz" value="uruz" />
-                        <span>&#x16A2;</span>
+                        <span class="green">&#x16A2;</span>
                         <input type="checkbox" name="attr_thurisaz" class="rune thurisaz" value="thurisaz" />
-                        <span>&#x16A6;</span>
+                        <span class="green">&#x16A6;</span>
                         <input type="checkbox" name="attr_cansuz" class="rune cansuz" value="cansuz" />
-                        <span>&#x16A8;</span>
+                        <span class="green">&#x16A8;</span>
                         <input type="checkbox" name="attr_raidho" class="rune raidho" value="raidho" />
-                        <span>&#x16B1;</span>
+                        <span class="green">&#x16B1;</span>
                         <input type="checkbox" name="attr_kenaz" class="rune kenaz" value="kenaz" />
-                        <span>&#x16B2;</span>
+                        <span class="green">&#x16B2;</span>
                         <input type="checkbox" name="attr_gebgift" class="rune gebgift" value="gebgift" />
-                        <span>&#x16B7;</span>
+                        <span class="green">&#x16B7;</span>
                         <input type="checkbox" name="attr_wunjo" class="rune wunjo" value="wunjo" />
-                        <span>&#x16B9;</span>
+                        <span class="green">&#x16B9;</span>
                         <input type="checkbox" name="attr_hagalaz" class="rune hagalaz" value="hagalaz" />
-                        <span>&#x16BA;</span>
+                        <span class="blue">&#x16BA;</span>
                         <input type="checkbox" name="attr_naudhneed" class="rune naudhneed" value="naudhneed" />
-                        <span>&#x16BE;</span>
+                        <span class="blue">&#x16BE;</span>
                         <input type="checkbox" name="attr_isaice" class="rune isaice" value="isaice" />
-                        <span>&#x16C1;</span>
+                        <span class="blue">&#x16C1;</span>
                         <input type="checkbox" name="attr_jethe" class="rune jethe" value="jethe" />
-                        <span>&#x16C3;</span>
+                        <span class="blue">&#x16C3;</span>
                         <input type="checkbox" name="attr_eihwas" class="rune eihwas" value="eihwas" />
-                        <span>&#x16C7;</span>
+                        <span class="blue">&#x16C7;</span>
                         <input type="checkbox" name="attr_pertho" class="rune pertho" value="pertho" />
-                        <span>&#x16C8;</span>
+                        <span class="blue">&#x16C8;</span>
                         <input type="checkbox" name="attr_elhaz" class="rune elhaz" value="elhaz" />
-                        <span>&#x16C9;</span>
+                        <span class="blue">&#x16C9;</span>
                         <input type="checkbox" name="attr_sowsun" class="rune sowsun" value="sowsun" />
-                        <span>&#x16CA;</span>
+                        <span class="blue">&#x16CA;</span>
                         <input type="checkbox" name="attr_tiwaz" class="rune tiwaz" value="tiwaz" />
-                        <span>&#x16CF;</span>
+                        <span class="red">&#x16CF;</span>
                         <input type="checkbox" name="attr_berkano" class="rune berkano" value="berkano" />
-                        <span>&#x16D2;</span>
+                        <span class="red">&#x16D2;</span>
                         <input type="checkbox" name="attr_ehwo" class="rune ehwo" value="ehwo" />
-                        <span>&#x16D6;</span>
+                        <span class="red">&#x16D6;</span>
                         <input type="checkbox" name="attr_mann" class="rune mann" value="mann" />
-                        <span>&#x16D7;</span>
+                        <span class="red">&#x16D7;</span>
                         <input type="checkbox" name="attr_claguz" class="rune claguz" value="claguz" />
-                        <span>&#x16D9;</span>
+                        <span class="red">&#x16D9;</span>
                         <input type="checkbox" name="attr_dagaz" class="rune dagaz" value="dagaz" />
-                        <span>&#x16DE;</span>
+                        <span class="red">&#x16DE;</span>
                         <input type="checkbox" name="attr_ing" class="rune ing" value="ing" />
-                        <span>&#x16DD;</span>
+                        <span class="red">&#x16DD;</span>
                         <input type="checkbox" name="attr_othala" class="rune othala" value="othala" />
-                        <span>&#x16DF;</span>
+                        <span class="red">&#x16DF;</span>
                         <input type="checkbox" name="attr_physical" class="rune physical" value="physical" />
-                        <span style='color:red'>&#x258B;</span>
+                        <span  style="font-size:0.7em" class="red">&#x258B;</span>
                         <input type="checkbox" name="attr_mental" class="rune mental" value="mental" />
-                        <span style='color:blue'>&#x258B;</span>
+                        <span  style="font-size:0.7em" class="blue">&#x258B;</span>
                         <input type="checkbox" name="attr_spiritual" class="rune spiritual" value="spiritual" />
-                        <span style='color:green'>&#x258B;</span>
+                        <span  style="font-size:0.7em" class="green">&#x258B;</span>
                     </div>
                 </div>
                 <input class="socialname" type="text" name="attr_socialname" />
-                <select name="attr_socialtype" class="socialtype type">
+                <select name="attr_type" class="type type">
                     <option value="socialattack">Social Attack</option>
                     <option value="socialinterrupt">Social Interrupt</option>
                 </select>
@@ -457,8 +463,8 @@
             <label class="labeltext">Notes:</label>
             <textarea class="notebox" name="attr_notes"></textarea>
         </div>
-    </div>-->
-    <!--<div class="current">
+    </div>
+    <div class="current">
         <div class="conditions grid-container"></div>
         <div class="condition blind grid-element">
             <input class="blind numbox" type="number" value="0" name="attr_blind" />
@@ -562,7 +568,7 @@
                 <span class="stat-container"><input type="number" name="attr_sopr" /></span>
             </div>
         </div>
-    </div>--->
+    </div>
     
     <div class="rgs3">
         <div class="bio ability-box">
@@ -621,93 +627,101 @@
             <br>
             <span class="checkbox"></span>
             <span class="rune-container labeltext">Rune:</span>
-            <span class="activename labeltext">Active:</span>
-            <span class="type labeltext">Type:</span>
+            <span class="activename labeltext">   Active:</span>
+            <span class="type-container labeltext">Type:</span>
             <span class="labeltext toggle-show">Show</span>
             <fieldset class="repeating_actives">
                 <input class="checkbox" type="checkbox" name="attr_actives_toggle" value="1" />
                 <div class="rune-container">
                     <div class="rune-child">
-                        <input type="checkbox" name="attr_void" class="rune void" value="void" /><span>&#x16F1;</span>
-                        <input type="checkbox" name="attr_fehu" class="rune fehu" value="fehu" /><span>&#x16A0;</span>
+                        <input type="checkbox" name="attr_void" class="rune void" value="void" />
+                        <span>&#x16F1;</span>
+                        <input type="checkbox" name="attr_fehu" class="rune fehu" value="fehu" />
+                        <span class="green">&#x16A0;</span>
                         <input type="checkbox" name="attr_uruz" class="rune uruz" value="uruz" />
-                        <span>&#x16A2;</span>
+                        <span class="green">&#x16A2;</span>
                         <input type="checkbox" name="attr_thurisaz" class="rune thurisaz" value="thurisaz" />
-                        <span>&#x16A6;</span>
+                        <span class="green">&#x16A6;</span>
                         <input type="checkbox" name="attr_cansuz" class="rune cansuz" value="cansuz" />
-                        <span>&#x16A8;</span>
+                        <span class="green">&#x16A8;</span>
                         <input type="checkbox" name="attr_raidho" class="rune raidho" value="raidho" />
-                        <span>&#x16B1;</span>
+                        <span class="green">&#x16B1;</span>
                         <input type="checkbox" name="attr_kenaz" class="rune kenaz" value="kenaz" />
-                        <span>&#x16B2;</span>
+                        <span class="green">&#x16B2;</span>
                         <input type="checkbox" name="attr_gebgift" class="rune gebgift" value="gebgift" />
-                        <span>&#x16B7;</span>
+                        <span class="green">&#x16B7;</span>
                         <input type="checkbox" name="attr_wunjo" class="rune wunjo" value="wunjo" />
-                        <span>&#x16B9;</span>
+                        <span class="green">&#x16B9;</span>
                         <input type="checkbox" name="attr_hagalaz" class="rune hagalaz" value="hagalaz" />
-                        <span>&#x16BA;</span>
+                        <span class="blue">&#x16BA;</span>
                         <input type="checkbox" name="attr_naudhneed" class="rune naudhneed" value="naudhneed" />
-                        <span>&#x16BE;</span>
+                        <span class="blue">&#x16BE;</span>
                         <input type="checkbox" name="attr_isaice" class="rune isaice" value="isaice" />
-                        <span>&#x16C1;</span>
+                        <span class="blue">&#x16C1;</span>
                         <input type="checkbox" name="attr_jethe" class="rune jethe" value="jethe" />
-                        <span>&#x16C3;</span>
+                        <span class="blue">&#x16C3;</span>
                         <input type="checkbox" name="attr_eihwas" class="rune eihwas" value="eihwas" />
-                        <span>&#x16C7;</span>
+                        <span class="blue">&#x16C7;</span>
                         <input type="checkbox" name="attr_pertho" class="rune pertho" value="pertho" />
-                        <span>&#x16C8;</span>
+                        <span class="blue">&#x16C8;</span>
                         <input type="checkbox" name="attr_elhaz" class="rune elhaz" value="elhaz" />
-                        <span>&#x16C9;</span>
+                        <span class="blue">&#x16C9;</span>
                         <input type="checkbox" name="attr_sowsun" class="rune sowsun" value="sowsun" />
-                        <span>&#x16CA;</span>
+                        <span class="blue">&#x16CA;</span>
                         <input type="checkbox" name="attr_tiwaz" class="rune tiwaz" value="tiwaz" />
-                        <span>&#x16CF;</span>
+                        <span class="red">&#x16CF;</span>
                         <input type="checkbox" name="attr_berkano" class="rune berkano" value="berkano" />
-                        <span>&#x16D2;</span>
+                        <span class="red">&#x16D2;</span>
                         <input type="checkbox" name="attr_ehwo" class="rune ehwo" value="ehwo" />
-                        <span>&#x16D6;</span>
+                        <span class="red">&#x16D6;</span>
                         <input type="checkbox" name="attr_mann" class="rune mann" value="mann" />
-                        <span>&#x16D7;</span>
+                        <span class="red">&#x16D7;</span>
                         <input type="checkbox" name="attr_claguz" class="rune claguz" value="claguz" />
-                        <span>&#x16D9;</span>
+                        <span class="red">&#x16D9;</span>
                         <input type="checkbox" name="attr_dagaz" class="rune dagaz" value="dagaz" />
-                        <span>&#x16DE;</span>
+                        <span class="red">&#x16DE;</span>
                         <input type="checkbox" name="attr_ing" class="rune ing" value="ing" />
-                        <span>&#x16DD;</span>
+                        <span class="red">&#x16DD;</span>
                         <input type="checkbox" name="attr_othala" class="rune othala" value="othala" />
-                        <span>&#x16DF;</span>
+                        <span class="red">&#x16DF;</span>
                         <input type="checkbox" name="attr_physical" class="rune physical" value="physical" />
-                        <span style='color:red'>&#x258B;</span>
+                        <span  style="font-size:0.7em" class="red">&#x258B;</span>
                         <input type="checkbox" name="attr_mental" class="rune mental" value="mental" />
-                        <span style='color:blue'>&#x258B;</span>
+                        <span  style="font-size:0.7em" class="blue">&#x258B;</span>
                         <input type="checkbox" name="attr_spiritual" class="rune spiritual" value="spiritual" />
-                        <span style='color:green'>&#x258B;</span>
+                        <span  style="font-size:0.7em" class="green">&#x258B;</span>
                     </div>
                 </div>
                 <input class="activename" type="text" name="attr_avtivename" />
-                <div class="type-container type">
+                <div class="type-container">
                     <div class="type-child">
-                        <input type="checkbox" name="attr_manoeuvre" class="activetype manoeuvre" value="manoeuvre" /><span>Manoeuvre<br></span>
-                        <input type="checkbox" name="attr_stance" class="activetype stance" value="stance" /><span>Stance<br></span>
-                        <input type="checkbox" name="attr_interrupt" class="activetype interrupt" value="interrupt" /><span>Interrupt<br></span>
-                        <input type="checkbox" name="attr_spell" class="rune activetype" value="spell" /><span>Spell<br></span>
-                        <input type="checkbox" name="attr_feat" class="activetype feat" value="feat" /><span>Feat<br></span>
-                        <input type="checkbox" name="attr_alka" class="activetype alka" value="alka" /><span>Alka<br></span>
-                        <input type="checkbox" name="attr_runic" class="activetype runic" value="runic" /><span>Rune<br></span>
-                        <input type="checkbox" name="attr_seith" class="activetype seith" value="seith" /><span>Seith<br></span>
-                        <input type="checkbox" name="attr_song" class="activetype song" value="song" /><span>Song<br></span>
-                        <input type="checkbox" name="attr_verwandlung" class="activetype verwandlung" value="verwandlung" /><span>Verwandlung<br></span>
-                        <input type="checkbox" name="attr_shapechange" class="activetype shapechange" value="shapechange" /><span>Shapechange<br></span>
-                        <input type="checkbox" name="attr_transform" class="activetype transform" value="transform" /><span>Transform<br></span>
-                        <input type="checkbox" name="attr_divine" class="activetype divine" value="divine" /><span>Divine<br></span>
-                        <input type="checkbox" name="attr_gate" class="activetype gate" value="gate" /><span>Gate<br></span>
-                        <input type="checkbox" name="attr_shade" class="activetype shade" value="shade" /><span>Shade<br></span>
-                        <input type="checkbox" name="attr_faith" class="activetype faith" value="faith" /><span>Faith<br></span>
-                        <input type="checkbox" name="attr_snare" class="activetype snare" value="snare" /><span>Snare<br></span>
-                        <input type="checkbox" name="attr_void" class="activetype void" value="voidtype" /><span>void<br></span>
-                        <input type="checkbox" name="attr_creation" class="activetype creation" value="creation" /><span>Creation<br></span>
-                        <input type="checkbox" name="attr_providence" class="activetype providence" value="providence" /><span>Providence<br></span>
-                        <input type="checkbox" name="attr_unseelie" class="activetype unseelie" value="unseelie" /><span>Unseelie</span>
+                        <input type="checkbox" name="attr_manoeuvre" class="type manoeuvre" value="manoeuvre" />
+                        <span>Manoeuvre<br></span>
+                        <input type="checkbox" name="attr_stance" class="type stance" value="stance" />
+                        <span>Stance<br></span>
+                        <input type="checkbox" name="attr_interrupt" class="type interrupt" value="interrupt" />
+                        <span>Interrupt<br></span>
+                        <input type="checkbox" name="attr_spell" class="type spell" value="spell" />
+                        <span>Spell<br></span>
+                        <input type="checkbox" name="attr_feat" class="type feat" value="feat" />
+                        <span>Feat<br></span>
+                        <input type="checkbox" name="attr_alka" class="type alka" value="alka" />
+                        <span>Alka<br></span>
+                        <input type="checkbox" name="attr_runic" class="type runic" value="runic" /><span>Rune<br></span>
+                        <input type="checkbox" name="attr_seith" class="type seith" value="seith" /><span>Seith<br></span>
+                        <input type="checkbox" name="attr_song" class="type song" value="song" /><span>Song<br></span>
+                        <input type="checkbox" name="attr_verwandlung" class="type verwandlung" value="verwandlung" /><span>Verwandlung<br></span>
+                        <input type="checkbox" name="attr_shapechange" class="type shapechange" value="shapechange" /><span>Shapechange<br></span>
+                        <input type="checkbox" name="attr_transform" class="type transform" value="transform" /><span>Transform<br></span>
+                        <input type="checkbox" name="attr_divine" class="type divine" value="divine" /><span>Divine<br></span>
+                        <input type="checkbox" name="attr_gate" class="type gate" value="gate" /><span>Gate<br></span>
+                        <input type="checkbox" name="attr_shade" class="type shade" value="shade" /><span>Shade<br></span>
+                        <input type="checkbox" name="attr_faith" class="type faith" value="faith" /><span>Faith<br></span>
+                        <input type="checkbox" name="attr_snare" class="type snare" value="snare" /><span>Snare<br></span>
+                        <input type="checkbox" name="attr_void" class="type void" value="voidtype" /><span>void<br></span>
+                        <input type="checkbox" name="attr_creation" class="type creation" value="creation" /><span>Creation<br></span>
+                        <input type="checkbox" name="attr_providence" class="type providence" value="providence" /><span>Providence<br></span>
+                        <input type="checkbox" name="attr_unseelie" class="type unseelie" value="unseelie" /><span>Unseelie</span>
                     </div>
                 </div>
                 <input type="checkbox" class="toggle-show" />
@@ -831,97 +845,123 @@
             <span class="checkbox"></span>
             <span class="rune-container labeltext">Rune:</span>
             <span class="socialname labeltext">Social:</span>
-            <span class="type labeltext">Type:</span>
+            <span class="type-container labeltext">Type:</span>
             <span class="labeltext toggle-show">Show</span>
             <fieldset class="repeating_socials">
                 <input class="checkbox" type="checkbox" name="attr_socials_toggle" value="1" />
                 <div class="rune-container">
                     <div class="rune-child">
-                        <input type="checkbox" name="attr_void" class="rune void" value="void" /><span>&#x16F1;</span>
-                        <input type="checkbox" name="attr_fehu" class="rune fehu" value="fehu" /><span>&#x16A0;</span>
+                        <input type="checkbox" name="attr_void" class="rune void" value="void" />
+                        <span>&#x16F1;</span>
+                        <input type="checkbox" name="attr_fehu" class="rune fehu" value="fehu" />
+                        <span class="green">&#x16A0;</span>
                         <input type="checkbox" name="attr_uruz" class="rune uruz" value="uruz" />
-                        <span>&#x16A2;</span>
+                        <span class="green">&#x16A2;</span>
                         <input type="checkbox" name="attr_thurisaz" class="rune thurisaz" value="thurisaz" />
-                        <span>&#x16A6;</span>
+                        <span class="green">&#x16A6;</span>
                         <input type="checkbox" name="attr_cansuz" class="rune cansuz" value="cansuz" />
-                        <span>&#x16A8;</span>
+                        <span class="green">&#x16A8;</span>
                         <input type="checkbox" name="attr_raidho" class="rune raidho" value="raidho" />
-                        <span>&#x16B1;</span>
+                        <span class="green">&#x16B1;</span>
                         <input type="checkbox" name="attr_kenaz" class="rune kenaz" value="kenaz" />
-                        <span>&#x16B2;</span>
+                        <span class="green">&#x16B2;</span>
                         <input type="checkbox" name="attr_gebgift" class="rune gebgift" value="gebgift" />
-                        <span>&#x16B7;</span>
+                        <span class="green">&#x16B7;</span>
                         <input type="checkbox" name="attr_wunjo" class="rune wunjo" value="wunjo" />
-                        <span>&#x16B9;</span>
+                        <span class="green">&#x16B9;</span>
                         <input type="checkbox" name="attr_hagalaz" class="rune hagalaz" value="hagalaz" />
-                        <span>&#x16BA;</span>
+                        <span class="blue">&#x16BA;</span>
                         <input type="checkbox" name="attr_naudhneed" class="rune naudhneed" value="naudhneed" />
-                        <span>&#x16BE;</span>
+                        <span class="blue">&#x16BE;</span>
                         <input type="checkbox" name="attr_isaice" class="rune isaice" value="isaice" />
-                        <span>&#x16C1;</span>
+                        <span class="blue">&#x16C1;</span>
                         <input type="checkbox" name="attr_jethe" class="rune jethe" value="jethe" />
-                        <span>&#x16C3;</span>
+                        <span class="blue">&#x16C3;</span>
                         <input type="checkbox" name="attr_eihwas" class="rune eihwas" value="eihwas" />
-                        <span>&#x16C7;</span>
+                        <span class="blue">&#x16C7;</span>
                         <input type="checkbox" name="attr_pertho" class="rune pertho" value="pertho" />
-                        <span>&#x16C8;</span>
+                        <span class="blue">&#x16C8;</span>
                         <input type="checkbox" name="attr_elhaz" class="rune elhaz" value="elhaz" />
-                        <span>&#x16C9;</span>
+                        <span class="blue">&#x16C9;</span>
                         <input type="checkbox" name="attr_sowsun" class="rune sowsun" value="sowsun" />
-                        <span>&#x16CA;</span>
+                        <span class="blue">&#x16CA;</span>
                         <input type="checkbox" name="attr_tiwaz" class="rune tiwaz" value="tiwaz" />
-                        <span>&#x16CF;</span>
+                        <span class="red">&#x16CF;</span>
                         <input type="checkbox" name="attr_berkano" class="rune berkano" value="berkano" />
-                        <span>&#x16D2;</span>
+                        <span class="red">&#x16D2;</span>
                         <input type="checkbox" name="attr_ehwo" class="rune ehwo" value="ehwo" />
-                        <span>&#x16D6;</span>
+                        <span class="red">&#x16D6;</span>
                         <input type="checkbox" name="attr_mann" class="rune mann" value="mann" />
-                        <span>&#x16D7;</span>
+                        <span class="red">&#x16D7;</span>
                         <input type="checkbox" name="attr_claguz" class="rune claguz" value="claguz" />
-                        <span>&#x16D9;</span>
+                        <span class="red">&#x16D9;</span>
                         <input type="checkbox" name="attr_dagaz" class="rune dagaz" value="dagaz" />
-                        <span>&#x16DE;</span>
+                        <span class="red">&#x16DE;</span>
                         <input type="checkbox" name="attr_ing" class="rune ing" value="ing" />
-                        <span>&#x16DD;</span>
+                        <span class="red">&#x16DD;</span>
                         <input type="checkbox" name="attr_othala" class="rune othala" value="othala" />
-                        <span>&#x16DF;</span>
+                        <span class="red">&#x16DF;</span>
                         <input type="checkbox" name="attr_physical" class="rune physical" value="physical" />
-                        <span style='color:red'>&#x258B;</span>
+                        <span  style="font-size:0.7em" class="red">&#x258B;</span>
                         <input type="checkbox" name="attr_mental" class="rune mental" value="mental" />
-                        <span style='color:blue'>&#x258B;</span>
+                        <span  style="font-size:0.7em" class="blue">&#x258B;</span>
                         <input type="checkbox" name="attr_spiritual" class="rune spiritual" value="spiritual" />
-                        <span style='color:green'>&#x258B;</span>
+                        <span  style="font-size:0.7em" class="green">&#x258B;</span>
                     </div>
                 </div>
                 <input class="socialname" type="text" name="attr_socialname" />
-                <select name="attr_socialtype" class="socialtype type">
-                    <option value="socialattack">Social Attack</option>
-                    <option value="socialinterrupt">Social Interrupt</option>
-                </select>
+                <div class="type-container">
+                    <div class="type-child">
+                        <input type="checkbox" name="attr_socialally" class="type ally" value="ally" /><span>Ally<br></span>
+                        <input type="checkbox" name="attr_socialattack" class="type attack" value="attack" /><span>Attack<br></span>
+                        <input type="checkbox" name="attr_socialcompel" class="type compel" value="compel" /><span>Compel<br></span>
+                        <input type="checkbox" name="attr_socialdefend" class="type defend" value="defend" /><span>Defend<br></span>
+                        <input type="checkbox" name="attr_socialprovoke" class="type provoke" value="provoke" /><span>Provoke<br></span>
+                        <input type="checkbox" name="attr_socialquestion" class="type question" value="question" /><span>Question<br></span>
+                    </div>
+                </div>
                 <input type="checkbox" class="toggle-show" />
                 <div class="socialdetails showable">
                     <select name="attr_pmeta" class="pmeta metatag">
                         <option value="abate">Abate</option>
+                        <option value="area">Area</option>
                         <option value="aid">Aid</option>
                         <option value="amplify">Amplify</option>
+                        <option value="combo">Combo</option>
                         <option value="maintain">Maintain</option>
-                        <option value="master">Master</option>
+                        <option value="master">Mastery</option>
+                        <option value="multi">Multi</option>
+                        <option value="range">Range</option>
+                        <option value="resist">Resist</option>
+                        <option value="swift">Swift</option>
                         <option value="sinister">Sinister</option>
                     </select>
                     <select name="attr_mmeta" class="mmeta metatag">
                         <option value="abate">Abate</option>
+                        <option value="area">Area</option>
                         <option value="aid">Aid</option>
                         <option value="amplify">Amplify</option>
+                        <option value="combo">Combo</option>
                         <option value="maintain">Maintain</option>
-                        <option value="master">Master</option>
+                        <option value="master">Mastery</option>
+                        <option value="multi">Multi</option>
+                        <option value="range">Range</option>
+                        <option value="resist">Resist</option>
+                        <option value="swift">Swift</option>
                         <option value="sinister">Sinister</option>
                     </select>
                     <select name="attr_smeta" class="smeta metatag">
                         <option value="abate">Abate</option>
+                        <option value="area">Area</option>
                         <option value="aid">Aid</option>
                         <option value="amplify">Amplify</option>
+                        <option value="combo">Combo</option>
                         <option value="maintain">Maintain</option>
-                        <option value="master">Master</option>
+                        <option value="master">Mastery</option>
+                        <option value="multi">Multi</option>
+                        <option value="range">Range</option>
+                        <option value="resist">Resist</option>
+                        <option value="swift">Swift</option>
                         <option value="sinister">Sinister</option>
                     </select>
                     <label class="desclabel labeltext">Description:<textarea name="attr_socials_description" class="socialdesc desc textbox"></textarea></label>
@@ -947,20 +987,23 @@
             <br>
             <span class="checkbox"></span>
             <span class="passivename labeltext">Passive:</span>
-            <span class="labeltext passivetype">Type:</span>
+            <span class="labeltext type-container">Type:</span>
             <span class="labeltext toggle-show">Show</span>
             <fieldset class="repeating_passives">
                 <input class="checkbox" type="checkbox" name="attr_passives_toggle" value="1" />
                 <input class="passivename" type="text" name="attr_passives_name" />
-                <select class="passivetype passivetype" name="attr_passives_type">
-                    <option value="feat">Feat</option>
-                    <option value="enchantment">Enchantment</option>
-                    <option value="rune">Rune</option>
-                    <option value="shadow">Shadow</option>
-                    <option value="primal">Primal</option>
-                    <option value="bloodline_primal">Bloodline Primal</option>
-                    <option value="summon">Summon</option>
-                </select>
+                <div class="type-container">
+                    <div class="type-child">
+                        <input type="checkbox" name="attr_passivebloodline" class="type bloodline" value="bloodline" /><span>Bloodline<br></span>
+                        <input type="checkbox" name="attr_passivefeat" class="type feat" value="feat" /><span>Feat<br></span>
+                        <input type="checkbox" name="attr_passiveenchantment" class="type enchantment" value="enchantment" /><span>Enchantment<br></span>
+                        <input type="checkbox" name="attr_passiverune" class="type runetype" value="rune" /><span>Rune<br></span>
+                        <input type="checkbox" name="attr_passiveshadow" class="type shadow" value="shadow" /><span>Shadow<br></span>
+                        <input type="checkbox" name="attr_passiveprimal" class="type primal" value="primal" /><span>Primal<br></span>
+                        <input type="checkbox" name="attr_passivesocial" class="type social" value="social" /><span>Social<br></span>
+                        <input type="checkbox" name="attr_passivesummon" class="type summon" value="summon" /><span>Summon<br></span>
+                    </div>
+                </div>
                 <input type="checkbox" class="toggle-show" />
                 <div class="passivedetails showable">
                     <label class="desclabel labeltext">Description:</label><br><textarea class="passivedesc desc textbox" name="attr_passives_description"></textarea>
@@ -993,60 +1036,62 @@
                 <fieldset class="repeating_skills">
                     <div class="rune-container">
                         <div class="rune-child">
-                            <input type="checkbox" name="attr_void" class="rune void" value="void" /><span>&#x16F1;</span>
-                            <input type="checkbox" name="attr_fehu" class="rune fehu" value="fehu" /><span>&#x16A0;</span>
+                            <input type="checkbox" name="attr_void" class="rune void" value="void" />
+                            <span>&#x16F1;</span>
+                            <input type="checkbox" name="attr_fehu" class="rune fehu" value="fehu" />
+                            <span class="green">&#x16A0;</span>
                             <input type="checkbox" name="attr_uruz" class="rune uruz" value="uruz" />
-                            <span>&#x16A2;</span>
+                            <span class="green">&#x16A2;</span>
                             <input type="checkbox" name="attr_thurisaz" class="rune thurisaz" value="thurisaz" />
-                            <span>&#x16A6;</span>
+                            <span class="green">&#x16A6;</span>
                             <input type="checkbox" name="attr_cansuz" class="rune cansuz" value="cansuz" />
-                            <span>&#x16A8;</span>
+                            <span class="green">&#x16A8;</span>
                             <input type="checkbox" name="attr_raidho" class="rune raidho" value="raidho" />
-                            <span>&#x16B1;</span>
+                            <span class="green">&#x16B1;</span>
                             <input type="checkbox" name="attr_kenaz" class="rune kenaz" value="kenaz" />
-                            <span>&#x16B2;</span>
+                            <span class="green">&#x16B2;</span>
                             <input type="checkbox" name="attr_gebgift" class="rune gebgift" value="gebgift" />
-                            <span>&#x16B7;</span>
+                            <span class="green">&#x16B7;</span>
                             <input type="checkbox" name="attr_wunjo" class="rune wunjo" value="wunjo" />
-                            <span>&#x16B9;</span>
+                            <span class="green">&#x16B9;</span>
                             <input type="checkbox" name="attr_hagalaz" class="rune hagalaz" value="hagalaz" />
-                            <span>&#x16BA;</span>
+                            <span class="blue">&#x16BA;</span>
                             <input type="checkbox" name="attr_naudhneed" class="rune naudhneed" value="naudhneed" />
-                            <span>&#x16BE;</span>
+                            <span class="blue">&#x16BE;</span>
                             <input type="checkbox" name="attr_isaice" class="rune isaice" value="isaice" />
-                            <span>&#x16C1;</span>
+                            <span class="blue">&#x16C1;</span>
                             <input type="checkbox" name="attr_jethe" class="rune jethe" value="jethe" />
-                            <span>&#x16C3;</span>
+                            <span class="blue">&#x16C3;</span>
                             <input type="checkbox" name="attr_eihwas" class="rune eihwas" value="eihwas" />
-                            <span>&#x16C7;</span>
+                            <span class="blue">&#x16C7;</span>
                             <input type="checkbox" name="attr_pertho" class="rune pertho" value="pertho" />
-                            <span>&#x16C8;</span>
+                            <span class="blue">&#x16C8;</span>
                             <input type="checkbox" name="attr_elhaz" class="rune elhaz" value="elhaz" />
-                            <span>&#x16C9;</span>
+                            <span class="blue">&#x16C9;</span>
                             <input type="checkbox" name="attr_sowsun" class="rune sowsun" value="sowsun" />
-                            <span>&#x16CA;</span>
+                            <span class="blue">&#x16CA;</span>
                             <input type="checkbox" name="attr_tiwaz" class="rune tiwaz" value="tiwaz" />
-                            <span>&#x16CF;</span>
+                            <span class="red">&#x16CF;</span>
                             <input type="checkbox" name="attr_berkano" class="rune berkano" value="berkano" />
-                            <span>&#x16D2;</span>
+                            <span class="red">&#x16D2;</span>
                             <input type="checkbox" name="attr_ehwo" class="rune ehwo" value="ehwo" />
-                            <span>&#x16D6;</span>
+                            <span class="red">&#x16D6;</span>
                             <input type="checkbox" name="attr_mann" class="rune mann" value="mann" />
-                            <span>&#x16D7;</span>
+                            <span class="red">&#x16D7;</span>
                             <input type="checkbox" name="attr_claguz" class="rune claguz" value="claguz" />
-                            <span>&#x16D9;</span>
+                            <span class="red">&#x16D9;</span>
                             <input type="checkbox" name="attr_dagaz" class="rune dagaz" value="dagaz" />
-                            <span>&#x16DE;</span>
+                            <span class="red">&#x16DE;</span>
                             <input type="checkbox" name="attr_ing" class="rune ing" value="ing" />
-                            <span>&#x16DD;</span>
+                            <span class="red">&#x16DD;</span>
                             <input type="checkbox" name="attr_othala" class="rune othala" value="othala" />
-                            <span>&#x16DF;</span>
+                            <span class="red">&#x16DF;</span>
                             <input type="checkbox" name="attr_physical" class="rune physical" value="physical" />
-                            <span style='color:red'>&#x258B;</span>
+                            <span  style="font-size:0.7em" class="red">&#x258B;</span>
                             <input type="checkbox" name="attr_mental" class="rune mental" value="mental" />
-                            <span style='color:blue'>&#x258B;</span>
+                            <span  style="font-size:0.7em" class="blue">&#x258B;</span>
                             <input type="checkbox" name="attr_spiritual" class="rune spiritual" value="spiritual" />
-                            <span style='color:green'>&#x258B;</span>
+                            <span  style="font-size:0.7em" class="green">&#x258B;</span>
                         </div>
                     </div>
                     <input class="skillname" type="text" name="attr_skills_name" />

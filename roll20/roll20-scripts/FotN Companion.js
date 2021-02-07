@@ -53,8 +53,6 @@ const alka = {
 //Begin wyrd script
 on('chat:message', (msg) => {
     if ('api' === msg.type && /!wyrd\b/i.test(msg.content)) {
-        //these are the placement coordinants for the various zones on the playmat
-        const coords = {hand: [0.2, 0.2], stun: [0.1, -0.04], wounds1: [0.16, -0.16], wounds2: [-0.05, -0.27], wounds3: [-0.25, -0.42], death: [0.25, -0.27], drain: [0.4, -0.27]};
         const args = msg.content.split(/\s+--/);
         //check to see if third argument specifies a zone other than 'hand', default to 'hand'
         if (!['stun', 'wounds1', 'wounds2', 'wounds3', 'death', 'drain'].includes(args[3])) {
@@ -64,6 +62,26 @@ on('chat:message', (msg) => {
         if (!['gmlayer', 'map'].includes(args[4])) {
             args[4]='objects';
         }
+        //getid of character
+        let theCharacter = findObjs({
+            _type: "character",
+            name: args[1]
+        })[0];
+        //test if character exists
+        if (!theCharacter) {
+            sendChat('Wyrd', '/w gm Create a character named ' + args[1]);
+            return;
+        }
+        //get the game type, should be rgs2 or rgs3
+        let gametype = getAttrByName(theCharacter.id, 'gametype');
+        
+        //set placement coordinants based on game type
+        if (gametype == 'rgs3') {
+            var coords = {hand: [0.25, 0.0], stun: [0.45, -0.1], wounds1: [0.28, -0.25], wounds2: [0.22, -0.25], wounds3: [0.16, -0.25], death: [0.04, -0.25], drain: [-0.2, -0.25]};
+        } else {
+            var coords = {hand: [0.2, 0.2], stun: [0.1, -0.04], wounds1: [0.16, -0.16], wounds2: [-0.05, -0.27], wounds3: [-0.25, -0.42], death: [0.25, -0.27], drain: [0.4, -0.27]};
+        }
+
         //getid of deck
         //deck must have the same name as the character
         let theDeck = findObjs({
@@ -111,6 +129,7 @@ on('chat:message', (msg) => {
                 //Make it so that anyone can control the cards. If you change "all" to args[1] it should limit
                 //control to the initiating player
                 cardObj.set("controlledby", "all");
+                toFront(cardObj);
             } else {
                 //If the deck is empty send a message to the player and exit
                 sendChat('Wyrd', '/w '+args[1]+' your bag is empty');
@@ -129,6 +148,20 @@ on('chat:message', (msg) => {
             _type: "deck",
             name: args[1]
         })[0];
+        
+         //getid of character
+        let theCharacter = findObjs({
+            _type: "character",
+            name: args[1]
+        })[0];
+        //test if character exists
+        if (!theCharacter) {
+            sendChat('Wyrd', '/w gm Create a character named ' + args[1]);
+            return;
+        }
+        //get the game type, should be rgs2 or rgs3
+        let gametype = getAttrByName(theCharacter.id, 'gametype');
+        
         //test if deck exists
         if (!theDeck) {
             sendChat('cleanup', '/w gm Create a deck named ' + args[1]);
@@ -163,7 +196,7 @@ on('chat:message', (msg) => {
         //for each card
         for (let card of cards) {
             //if it isn't in wounded and isn't selected
-            if (!woundCheck(playmat, card) && !selectedArray.includes(card.id)) {
+            if (!woundCheck(playmat, card, gametype) && !selectedArray.includes(card.id)) {
                 //pick up the card
                 pickUpCard(card.cardid);
             } 
@@ -183,7 +216,7 @@ function getID(value) { //returns the id
     }
 }
 
-function woundCheck(playmat, card) { 
+function woundCheck(playmat, card, gametype) { 
     //checks to see if a rune is in a specific zone of the playmat. Returns true if it is.
     let cardObj = findObjs({
         id: card.id
@@ -191,10 +224,15 @@ function woundCheck(playmat, card) {
     let leftBound = playmat.get('left')-playmat.get('width')/2; //set left side of playmat
     let bottomBound = playmat.get('top')+playmat.get('height')/2; //set bottom side of playmat
     let topBound = playmat.get('top')-playmat.get('height')/2; //set top side of playmat
-    if (leftBound < cardObj.get('left') &&                      //checks to see if rune is within playmat bounds and at least 60% down the graphic
+    if (leftBound < cardObj.get('left') &&                      //checks to see if rune is within playmat bounds and at least 60% down the graphic if the gametype is rgs2
     cardObj.get('left') < leftBound + playmat.get('width') &&
     cardObj.get('top') < bottomBound &&
-    0.6*playmat.get('height')+topBound < cardObj.get('top')) {
+    0.6*playmat.get('height')+topBound < cardObj.get('top') && gametype=='rgs2') {
+        return true;
+    } else if (leftBound < cardObj.get('left') &&                      //checks to see if rune is within playmat bounds and at least 60% down the graphic
+    cardObj.get('left') < leftBound + playmat.get('width') &&
+    cardObj.get('top') < bottomBound &&
+    0.6*playmat.get('height')+topBound < cardObj.get('top') && 0.2*playmat.get('width')+leftBound < cardObj.get('left')  && gametype=='rgs3') {
         return true;
     } else {
         return false;
@@ -342,6 +380,7 @@ on('chat:message', (msg) => {
             pageid: campaign.get('playerpageid'),
             imgsrc: alka[args[1]],
             layer: "objects",
+            controlledby: 'all',
             left: 1000,
             top: 1000,
             width: 70,
