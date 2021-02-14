@@ -316,10 +316,10 @@ on('chat:message', (msg) => {
         if (theCharacter) { //if the character exists
             //initialize rune with the first rune in the repeating_actives section
             let runes = getAttrByName(theCharacter.id, 'runeBag');
-            log(runes);
+            //log(runes);
             if (!(_.isArray(runes))) {
-                runes = runes.split(',');
-                log(runes);
+                runes = runes.split(/\,\s*/);
+                //log(runes);
             }
             for (const rune of runes) { //it's a whole thing, don't ask
                 log(rune);
@@ -346,15 +346,19 @@ on('chat:message', (msg) => {
             });
         } else { //if it does exist
             let deckCardIDs = deck.get('_currentDeck'); //get a string of the current card IDs
-            deckCardIDs = deckCardIDs.split(','); //split them into an array
+            //log(deckCardIDs);
+            deckCardIDs = deckCardIDs.split(/\,\s*/); //split them into an array
+            //log(deckCardIDs);
             deckCardIDs.forEach(cardID => { //delete them all
                 let card = findObjs({
                     _id: cardID
                 })[0];
+                //log(card);
                 if (card) {card.remove()}; //but only if the card actually exists, 'cause sometimes it doesn't
             });
         }
         //at this point you should have an empty deck (either new or emptied out) and a bag of names
+        //log(deck.get('_currentDeck'));
         bag.forEach(rune => { //for each name in the bag
             if (Object.keys(runes).includes(rune)) { //if it is a key in the runes constant
                 createObj("card", { //make a card with the name and its designated image and put it in the bag
@@ -362,9 +366,12 @@ on('chat:message', (msg) => {
                     name: rune,
                     avatar: runes[rune]
                 });
+                shuffleDeck(deck.id)
             }
         });
+        //log(deck.get('currentDeck'));
         shuffleDeck(deck.id) //damned if I know why, but if you don't do this then deck doesn't register the new cards and remove the old ones
+        //log(deck.get('currentDeck'));
     }
 });
 
