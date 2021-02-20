@@ -8,6 +8,7 @@
         <button type="action" name="act_character" >Character</button>
         <button type="action" name="act_current" >Current</button>
         <button type="action" name="act_rgs3" >RGS3</button>
+        <button type="action" name="act_lifepath" >Lifepath</button>
     </div>
     <input type='hidden' class='tabstoggle' name='attr_sheetTab' value='rgs3' />
    
@@ -577,10 +578,11 @@
             <span class="stat-container levelbox"><input class="levelbox stat-container" type="number" name="attr_level" /></span>
             <span class="stat-container essencebox"><input type="number" name="attr_essence" /></span>
             <span class="stat-container destinybox"><input type="number" name="attr_destiny" /></span>
-            <span class="sizebox stat-container"><input type="number" value=4 name="attr_basesize" /></span>
+            <span class="basesizebox stat-container"><input type="number" value=4 name="attr_basesize" /></span>
             <span class="healbox stat-container"><input type="number" name="attr_heal" /></span>
             <span class="movebox stat-container"><input type="number" name="attr_move" /></span>
             <span class="focusbox stat-container"><input type="number" name="attr_focus" /></span>
+            <span class="sizebox stat-container"><input type="number" name="attr_size" /></span>
             <input class="archtypebox text-container" type="text" name="attr_archtype" />
         </div>
         <div class="currentstats">
@@ -1261,7 +1263,7 @@
     });
     
     
-    const buttonlist = ["character","current", "rgs3"];
+    const buttonlist = ["character","current", "rgs3", "lifepath"];
     buttonlist.forEach(button => {
         on(`clicked:${button}`, function() {
             //console.log('clicked');

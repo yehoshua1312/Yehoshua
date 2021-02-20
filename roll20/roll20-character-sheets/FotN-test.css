@@ -957,7 +957,7 @@ input.sheet-stat-container {
     left: -22%;
 }
 
-.sheet-rgs3 .sheet-sizebox input {
+.sheet-rgs3 .sheet-basesizebox input {
     top: 35%;
     left: -1%;
 }
@@ -971,12 +971,19 @@ input.sheet-stat-container {
 
 .sheet-rgs3 .sheet-movebox input {
     top: 62%;
-    left: -46.5%;
+    left: -53.5%;
     background: transparent;
     border: none;
 }
 
 .sheet-rgs3 .sheet-focusbox input {
+    top: 52%;
+    left: 52%;
+    background: transparent;
+    border: none;
+}
+
+.sheet-rgs3 .sheet-sizebox input {
     top: 52%;
     left: 64%;
     background: transparent;
@@ -986,7 +993,7 @@ input.sheet-stat-container {
 .sheet-rgs3 .sheet-archtypebox {
     position: relative;
     top: 74%;
-    left: 38%;
+    left: 30%;
     width: 50%;
 }
 
@@ -1013,8 +1020,8 @@ input.sheet-stat-container {
     left: 25%;
     top: 50%;
     font-size: .85em;
-    height: 39%;
-    width: 40%;
+    height: 40%;
+    width: 44%;
     background: transparent;
     font-weight: bold;
     border: none;
