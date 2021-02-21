@@ -65,6 +65,29 @@
     
 }
 
+.sheet-tabstoggle[value="lifepath"] ~ div.sheet-lifepath {
+    display: grid;
+    width: 800px;
+    height: 1050px;
+    background-color: yellow;
+    background-image: url("https://github.com/yehoshua1312/Yehoshua/blob/master/roll20/roll20-character-sheets/images/lifepath%20sheet.png?raw=true");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    grid-gap: 0px;
+    grid-template-columns:7% 43% 43.5% 6.5%;
+    grid-template-rows: 5% 11% 14% 12% 13% 14% 13% 13% 2%;
+    grid-template-areas:"topborder topborder topborder topborder"
+                        "leftborder characteristics characteristics rightborder"
+                        "leftborder earlylife earlylife rightborder"
+                        "leftborder socialposition socialposition rightborder"
+                        "leftborder brushes brushes rightborder"
+                        "leftborder relationships relationships rightborder"
+                        "leftborder lifepathnotes lifepathnotes rightborder"
+                        "leftborder strings strings rightborder"
+                        "bottomborder bottomborder bottomborder bottomborder";
+    
+}
+
 /*.sheet-tabstoggle[value="character"] ~ div.sheet-character,
 .sheet-tabstoggle[value="conditions"] ~ div.sheet-conditions,
 .sheet-tabstoggle[value="lifepath"] ~ div.sheet-lifepath {
@@ -127,7 +150,7 @@ input.sheet-toggle-show:not(:checked) ~ div.sheet-showable {
 .sheet-ability-box {
     overflow: auto;
     background-repeat: no-repeat;
-    border: 0px solid black;
+    border: 3px solid black;
 }
 
 input.sheet-stat-container::-webkit-outer-spin-button, 
@@ -1178,4 +1201,168 @@ input.sheet-stat-container {
 .sheet-rgs3 .sheet-skillrank {
     height: 18px;
     font-size: 0.8em;
+}
+
+    /*--------------Lifepath Page---------------------*/
+.sheet-lifepath .sheet-characteristics {
+    grid-area: characteristics;
+    border: 0px solid yellow;
+}
+
+.sheet-lifepath .sheet-earlylife {
+    grid-area: earlylife;
+    border: 0px solid blue;
+}
+
+.sheet-lifepath .sheet-socialposition {
+    grid-area: socialposition;
+    border: 0px solid green;
+}
+
+.sheet-lifepath .sheet-brusheswithpower {
+    grid-area: brushes;
+    border: 0px solid purple;
+}
+
+.sheet-lifepath .sheet-dwellerrelationships {
+    grid-area: relationships;
+    border: 0px solid black;
+}
+
+.sheet-lifepath .sheet-lifepathnotes {
+    grid-area: lifepathnotes;
+    border: 0px solid red;
+}
+
+.sheet-lifepath .sheet-strings {
+    grid-area: strings;
+    border: 0px solid yellow;
+}
+
+.sheet-lifepath label {
+    height: 1.5em;
+    border: 0px solid black;
+}
+
+.sheet-lifepath .sheet-text-container {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.5);
+    width: 22%;
+    position: relative;
+}
+
+.sheet-lifepath .sheet-lifepathdesc {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.5);
+    width: 60%;
+    position: relative;
+}
+
+.sheet-lifepath .sheet-spacer {
+    display: inline-block;
+    width: 3%;
+}
+
+.sheet-lifepath .sheet-lifepathlabel {
+    display: inline-block;
+    width: 13%;
+}
+
+.sheet-lifepath .sheet-earlylifetext {
+    display: inline-block;
+    height: 1.8em;
+    width: 85%;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.sheet-lifepath .sheet-lifetext {
+    display: inline-block;
+    height: 1em;
+    width: 80%;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.sheet-lifepath .sheet-sublabel {
+    display: inline-block;
+    font-size: .8em;
+    width: 15%;
+}
+
+.sheet-lifepath .sheet-brushes {
+    height: 1.8em;
+}
+
+.sheet-lifepath .sheet-lifepathname {
+    display: inline-block;
+    height: 1em;
+    border: 0px solid black;
+    width: 98%;
+}
+
+.sheet-lifepath .sheet-earlylife label, .sheet-lifepath .sheet-socialposition label {
+    position: relative;
+}
+
+.sheet-lifepath .sheet-repeatinginput {
+    display: inline;
+    position: relative;
+    width: 83%;
+
+}
+
+.sheet-lifepath .sheet-contacttext {
+    display: inline-block;
+    height: 1.8em;
+    background: rgba(255, 255, 255, 0.5);
+    width:100%;
+    left: 15%;
+    top: -20%;
+}
+
+.sheet-lifepath .sheet-linespace {
+    height: 1em;
+}
+
+.sheet-lifepath .sheet-dwellerrelationships .sheet-dweller {
+    width: 15%;
+}
+
+.sheet-lifepath .sheet-dwellerrelationships .sheet-circumstance {
+    width: 55%;
+}
+
+.sheet-lifepath .sheet-dwellerrelationships .sheet-state {
+    width: 25%;
+}
+
+.sheet-lifepath .sheet-lifepathtext {
+    display: inline-block;
+    height: 1em;
+}
+
+.sheet-lifepath .sheet-lifenotes {
+    display: inline-block;
+    height: 70%;
+    width: 97%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 0px solid black;
+}
+
+.sheet-lifepath .sheet-strings .sheet-target {
+    width: 15%;
+}
+
+.sheet-lifepath .sheet-strings .sheet-information {
+    width: 55%;
+}
+
+.sheet-lifepath .sheet-strings .sheet-notes {
+    width: 25%;
+}
+
+.sheet-lifepath .sheet-stringtext {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.5);
+    height: 1.8em;
+    position: relative;
 }

@@ -10,7 +10,7 @@
         <button type="action" name="act_rgs3" >RGS3</button>
         <button type="action" name="act_lifepath" >Lifepath</button>
     </div>
-    <input type='hidden' class='tabstoggle' name='attr_sheetTab' value='rgs3' />
+    <input type='hidden' class='tabstoggle' name='attr_sheetTab' value='lifepath' />
    
     
     <div class="character">
@@ -37,7 +37,7 @@
                     <input class="skillrank" type="number" name="attr_skill_rank" />
                     <input type="checkbox" class="toggle-show" />
                     <div class="skilldetails showable">
-                        <label class="labeltext modlabel">Description:</label><textarea class="skilldesc textbox name="attr_skills_description></textarea>
+                        <label class="labeltext modlabel">Description:</label><textarea class="skilldesc textbox" name="attr_skills_description"></textarea>
                     </div>
                 </fieldset>
             </div>
@@ -570,7 +570,6 @@
             </div>
         </div>
     </div>
-    
     <div class="rgs3">
         <div class="bio ability-box">
             <input class="playernamebox text-container" type="text" name="attr_player_name" />
@@ -1168,6 +1167,68 @@
                     <label class="modlabel labeltext">SoDF:<input class="mod stat-container" type="number" name='attr_equipment_sodf' /></label>
                     <label class="modlabel labeltext">SoPR:<input class="mod stat-container" type="number" name='attr_equipment_sopr' /></label>
                 </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="lifepath">
+        <div class="characteristics">
+            <label class="lifepathname"><span class="labeltext lifepathlabel">Personality: </span><input class="text-container" type="text" name="attr_lifepath_personality" /><span class="spacer"></span><textarea class="lifepathdesc textbox" name="attr_lifepath_personality_description"></textarea></label>
+            <label class="lifepathname"><span class="labeltext lifepathlabel">Ambition: </span><input class="text-container" type="text" name="attr_lifepath_ambition" /><span class="spacer"></span><textarea class="lifepathdesc textbox" name="attr_lifepath_ambition_description"></textarea></label>
+            <label class="lifepathname"><span class="labeltext lifepathlabel">Morality: </span><input class="text-container" type="text" name="attr_lifepath_morality" /><span class="spacer"></span><textarea class="lifepathdesc textbox" name="attr_lifepath_morality_description"></textarea></label>
+            <label class="lifepathname"><span class="labeltext lifepathlabel">Vice: </span><input class="text-container" type="text" name="attr_lifepath_vice" /><span class="spacer"></span><textarea class="lifepathdesc textbox" name="attr_lifepath_vice_description"></textarea></label>
+        </div>
+        <div class="earlylife">
+            <label class="lifepathname"><span class="labeltext">Early Life</span></label>
+            <label class="lifepathname"><span class="labeltext sublabel">Birthplace: </span><input class="earlylifetext" type="text" name="attr_lifepath_birthplace" /></label>
+            <label class="lifepathname"><span class="labeltext sublabel">Family: </span><input class="earlylifetext" type="text" name="attr_lifepath_family" /></label>
+            <label class="lifepathname"><span class="labeltext sublabel">Defining Event: </span><input class="earlylifetext" type="text" name="attr_lifepath_definingevent" /></label>
+            <label class="lifepathname"><span class="labeltext sublabel">Scarring Event: </span><input class="earlylifetext" type="text" name="attr_lifepath_scarringevent" /></label>
+        </div>
+        <div class="socialposition ability-box">
+            <label class="lifepathname"><span class="labeltext">Social Position</span></label>
+            <label class="lifepathname"><span class="labeltext sublabel">Profession: </span><input class="earlylifetext" type="text" name="attr_lifepath_profession" /></label>
+            <label class="lifepathname"><span class="labeltext sublabel">Social Contact: </span></label>
+            <fieldset class="repeating_contacts repeatinginput">
+                <input class="contacttext" type="text" name="attr_lifepath_socialcontact" />
+            </fieldset>
+        </div>
+        <div class="brusheswithpower ability-box">
+            <label class="lifepathname"><span class="labeltext">Brushes With Power</span></label>
+            <fieldset class="repeating_brusheswithpower">
+                <div class='brushes'>
+                    <select style='height: 2.2em;' class="lifepathselect sublabel stringtext">
+                        <option class="lifepathoption">Civil</option>
+                        <option class="lifepathoption">Royal</option>
+                        <option class="lifepathoption">Divine</option>
+                    </select>
+                    <textarea class="lifetext textbox" name="attr_lifepath_brusheswithpower_description"></textarea>
+                </div>
+            </fieldset>
+        </div>
+        <div class="dwellerrelationships ability-box">
+            <label class="lifepathname"><span class="labeltext">Dweller Relationships</span></label>
+            <span class="lifepathtext dweller">Dweller: </span>
+            <span class="lifepathtext circumstance">Circumstance: </span>
+            <span class="lifepathtext state">State: </span>
+            <fieldset class="repeating_relationships">
+                <input class="dweller text-container earlylifetext" type="text" name="attr_lifepath_dwellername" />
+                <input class="circumstance text-container earlylifetext" type="text" name="attr_lifepath_dwellercircumstance" />
+                <input class="state text-container earlylifetext" type="text" name="attr_lifepath_dwellerstate" />
+            </fieldset>
+        </div>
+        <div class="lifepathnotes ability-box">
+            <label class="labeltext lifepathname">Notes:</label>
+            <textarea class="textbox lifenotes" name="attr_lifepathnotes"></textarea>
+        </div>
+        <div class="strings ability-box">
+            <label class="lifepathname"><span class="labeltext">Strings</span></label>
+            <span class="lifepathtext labeltext target">Target: </span>
+            <span class="lifepathtext labeltext information">Information: </span>
+            <span class="lifepathtext labeltext state">Notes: </span>
+            <fieldset class="repeating_strings">
+                <input class="target stringtext labeltext" type="text" name="attr_lifepath_dwellername" />
+                <input class="information stringtext labeltext" type="text" name="attr_lifepath_dwellercircumstance" />
+                <input class="notes stringtext labeltext" type="text" name="attr_lifepath_dwellerstate" />
             </fieldset>
         </div>
     </div>
