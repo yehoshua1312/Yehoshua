@@ -1,11 +1,11 @@
 <input type="hidden" name="attr_runeBag" />
 <div class="sheet-container">
     <div class="tabs">
-        <input type="radio" id='rgs2' name='attr_gametype' value='rgs2' checked='checked'>
+        <input type="radio" name='attr_gametype' value='rgs2' checked='checked'>
         <span for='rgs2'>RGS2</span>
-        <input type="radio" id='rgs3' name='attr_gametype' value='rgs3'>
+        <input type="radio" name='attr_gametype' value='rgs3'>
         <span for='rgs2'>RGS3</span>
-        <button type="action" name="act_character" >Character</button>
+        <button type="action" name="act_character" >RGS2</button>
         <button type="action" name="act_current" >Current</button>
         <button type="action" name="act_rgs3" >RGS3</button>
         <button type="action" name="act_lifepath" >Lifepath</button>
@@ -98,7 +98,8 @@
             <fieldset class="repeating_actives">
                 <input class="checkbox" type="checkbox" name="attr_actives_toggle" value="1" />
                 <select name="attr_rune" class="rune bluetext" onchange="this.className=this.options[this.selectedIndex].className">
-                    <option value="void">&#x16F1;</option>
+                    <option value="0">----</option>
+                    <option value="void">&#x25AF;</option>
                     <option value="tiwaz"><span>&#x16CF;</span></option>
                     <option value="berkano"><span>&#x16D2;</span></option>
                     <option value="ehwo"><span>&#x16D6;</span></option>
@@ -579,7 +580,7 @@
                 <div class="rune-container">
                     <div class="rune-child">
                         <input type="checkbox" name="attr_void" class="rune void" value="void" />
-                        <span>&#x16F1;</span>
+                        <span>&#x25AF;</span>
                         <input type="checkbox" name="attr_fehu" class="rune fehu" value="fehu" />
                         <span class="green">&#x16A0;</span>
                         <input type="checkbox" name="attr_uruz" class="rune uruz" value="uruz" />
@@ -699,6 +700,7 @@
                         <option value="resist">Resist</option>
                         <option value="sight">Sight</option>
                         <option value="stutter">Stutter</option>
+                        <option value="swift">Swift</option>
                         <option value="weapon">Weapon</option>
                     </select>
                     <select name="attr_mmeta" class="mmeta metatag">
@@ -730,6 +732,7 @@
                         <option value="resist">Resist</option>
                         <option value="sight">Sight</option>
                         <option value="stutter">Stutter</option>
+                        <option value="swift">Swift</option>
                         <option value="weapon">Weapon</option>
                     </select>
                     <select name="attr_smeta" class="smeta metatag">
@@ -761,6 +764,7 @@
                         <option value="resist">Resist</option>
                         <option value="sight">Sight</option>
                         <option value="stutter">Stutter</option>
+                        <option value="swift">Swift</option>
                         <option value="weapon">Weapon</option>
                     </select>
                     <label class="desclabel labeltext">Description:<textarea name="attr_actives_description" class="activedesc desc"></textarea></label>
@@ -796,7 +800,7 @@
                 <div class="rune-container">
                     <div class="rune-child">
                         <input type="checkbox" name="attr_void" class="rune void" value="void" />
-                        <span>&#x16F1;</span>
+                        <span>&#x25AF;</span>
                         <input type="checkbox" name="attr_fehu" class="rune fehu" value="fehu" />
                         <span class="green">&#x16A0;</span>
                         <input type="checkbox" name="attr_uruz" class="rune uruz" value="uruz" />
@@ -981,7 +985,7 @@
                     <div class="rune-container">
                         <div class="rune-child">
                             <input type="checkbox" name="attr_void" class="rune void" value="void" />
-                            <span>&#x16F1;</span>
+                            <span>&#x25AF;</span>
                             <input type="checkbox" name="attr_fehu" class="rune fehu" value="fehu" />
                             <span class="green">&#x16A0;</span>
                             <input type="checkbox" name="attr_uruz" class="rune uruz" value="uruz" />
@@ -1050,6 +1054,7 @@
                             <option value="efficient">Efficient</option>
                             <option value="mastery">Mastery</option>
                             <option value="multi">Multi</option>
+                            <option value="range">Range</option>
                             <option value="swift">Swift</option>
                             <option value="surmount">Surmount</option>
                         </select>
@@ -1061,6 +1066,7 @@
                             <option value="efficient">Efficient</option>
                             <option value="mastery">Mastery</option>
                             <option value="multi">Multi</option>
+                            <option value="range">Range</option>
                             <option value="swift">Swift</option>
                             <option value="surmount">Surmount</option>
                         </select>
@@ -1072,6 +1078,7 @@
                             <option value="efficient">Efficient</option>
                             <option value="mastery">Mastery</option>
                             <option value="multi">Multi</option>
+                            <option value="range">Range</option>
                             <option value="swift">Swift</option>
                             <option value="surmount">Surmount</option>
                         </select>
@@ -1287,21 +1294,31 @@
         //console.log(eventInfo.newValue);
         if (_.contains(runes, eventInfo.newValue) || _.contains(runes, eventInfo.previousValue)) {
             getAttrs(['runeBag'], v => {
-                console.log(v.runeBag);
-                let bag = v.runeBag.split(',');
-                console.log(bag);
-                //console.log(_.isArray(bag));
+                console.log(v);
+                bag = v.runeBag.split(',');
+                //console.log(bag);
+                //console.log(_.contains(runes, bag[0]));
+                bag = _.filter(bag, function(rune){
+                    //console.log(_.contains(runes, rune));
+                    return _.contains(runes, rune)});
+                console.log(_.contains(['physical','mental','spiritual'], eventInfo.newValue));
                 if (eventInfo.newValue == 0) {
                     //console.log("new value 0")
-                    bag = _.difference(bag, [eventInfo.previousValue]);
+                    //bag = _.difference(bag, [eventInfo.previousValue]);
+                    console.log(bag);
+                    const index = bag.indexOf(eventInfo.previousValue);
+                    if (index > -1) {
+                        bag.splice(index, 1);
+                    }
                     console.log(bag);
                 }
-                else if (!(_.contains(bag, eventInfo.newValue)) && eventInfo.newValue != "void") {
+                else if ((!(_.contains(bag, eventInfo.newValue)) || (_.contains(['physical','mental','spiritual'], eventInfo.newValue))) && (eventInfo.newValue != 'void')) {
                     bag.push(eventInfo.newValue);
                     console.log(bag);
                 }
                 //console.log(bag);
                 bag = bag.join(',');
+                console.log(bag);
                 setAttrs({"runeBag": bag});
             });
         }

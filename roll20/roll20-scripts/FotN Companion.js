@@ -265,7 +265,7 @@ on('change:attribute', function(obj) {
                _characterid: char.id,
                _type: "ability",
                name: "Inflict",
-               action: "!inflict --@{character_name} --?{Condition|Possession,possession|Taunt,taunt|Curse,curse|Vulnerable,vulnerable|Blind,blind|Degenerate,degenerate|Impeded,impeded|Rage,rage|Shroud,shroud|Aura,aura} --?{Intensity|1,1|2,2|3,3|4,4} --rgs2",
+               action: "!inflict --@{character_name} --?{Condition|Possession,possession|Taunt,taunt|Curse,curse|Vulnerable,vulnerable|Blind,blind|Degenerate,degenerate|Impeded,impeded|Rage,rage|Shroud,shroud|Aura,aura} --?{Intensity|0,0|1,1|2,2|3,3|4,4} --rgs2",
                istokenaction: true
             });
         } else if (obj.get('current')=='rgs3') {
@@ -281,7 +281,7 @@ on('change:attribute', function(obj) {
                _characterid: char.id,
                _type: "ability",
                name: "Inflict",
-               action: "!inflict --@{character_name} --?{Condition|Alertness,alertness|Fury,fury|Possession,possession|Taunt,taunt|Vulnerable,vulnerable|Divine Favour,div favour|Divine Wrath,div wrath|Miracle,miracle|Trance,trance|Blind,blind|Drunk,drunk|Degenerate,degenerate|Impeded,impeded|Rage,rage|Shroud,shroud|Anger,anger|Brave,brave|Fear,fear|Friendly,friendly|Grief,grief|Humiliated,humiliated|Inspired,inspired|Remorse,remorse} --?{Intensity|1,1|2,2|3,3|4,4} --rgs3",
+               action: "!inflict --@{character_name} --?{Condition|Alertness,alertness|Fury,fury|Possession,possession|Taunt,taunt|Vulnerable,vulnerable|Divine Favour,div favour|Divine Wrath,div wrath|Miracle,miracle|Trance,trance|Blind,blind|Drunk,drunk|Degenerate,degenerate|Impeded,impeded|Rage,rage|Shroud,shroud|Anger,anger|Brave,brave|Fear,fear|Friendly,friendly|Grief,grief|Humiliated,humiliated|Inspired,inspired|Remorse,remorse} --?{Intensity|0,0|1,1|2,2|3,3|4,4} --rgs3",
                istokenaction: true
             });
         } else {
@@ -471,7 +471,7 @@ on('chat:message', (msg) => {
         let text = findObjs({ //look for a textbox with the reference in the controlledby feild
             _type: "text",
             _pageid: pageID,
-            controlledby: name
+            controlledby: `${name},${'all'}`
         })[0];
         if (text) {
             //If the textbox exists, simply update it with current data
@@ -485,7 +485,7 @@ on('chat:message', (msg) => {
                font_family: "Arial",
                font_size: 32,
                layer: 'objects',
-               controlledby: name,
+               controlledby: `${name},${'all'}`,
                color: 'rgb(255, 255, 255)',
                top: (playmat.get('top')-0.5*playmat.get('height'))+Number(split[1])/100*playmat.get('height'),
                left: (playmat.get('left')-0.5*playmat.get('width'))+Number(split[0])/100*playmat.get('width')
@@ -518,7 +518,7 @@ on('ready', function() { //this makes it not happen whenever the api server is s
            _characterid: obj.id,
            _type: "ability",
            name: "Inflict",
-           action: "!inflict --@{character_name} --?{Condition|Possession,possession|Taunt,taunt|Curse,curse|Vulnerable,vulnerable|Blind,blind|Degenerate,degenerate|Impeded,impeded|Rage,rage|Shroud,shroud|Aura,aura} --?{Intensity|1,1|2,2|3,3|4,4} --rgs2",
+           action: "!inflict --@{character_name} --?{Condition|Possession,possession|Taunt,taunt|Curse,curse|Vulnerable,vulnerable|Blind,blind|Degenerate,degenerate|Impeded,impeded|Rage,rage|Shroud,shroud|Aura,aura} --?{Intensity|0,0|1,1|2,2|3,3|4,4} --rgs2",
            istokenaction: true
         });
         createObj('ability', { //make the Stun ability tied to the created character
@@ -527,6 +527,40 @@ on('ready', function() { //this makes it not happen whenever the api server is s
            name: "Stun",
            action: "!wyrd --@{character_name} --1 --stun",
            istokenaction: true
+        });
+        createObj('ability', { //make the Initiative ability tied to the created character
+           _characterid: obj.id,
+           _type: "ability",
+           name: "Initiative",
+           action: "/roll 1d100 &{tracker}",
+           istokenaction: true
+        });
+        createObj('ability', { //make the Build ability tied to the created character
+           _characterid: obj.id,
+           _type: "ability",
+           name: "Build",
+           action: "!build --@{character_name}",
+           istokenaction: true
+        });
+        createObj('ability', { //make the Playmats ability tied to the created character
+           _characterid: obj.id,
+           _type: "ability",
+           name: "Playmats",
+           action: "!mc move --target Playmats",
+           istokenaction: false
+        });
+        createObj('ability', { //make the Rejoin ability tied to the created character
+           _characterid: obj.id,
+           _type: "ability",
+           name: "Rejoin",
+           action: "!mc rejoin",
+           istokenaction: false
+        });
+        createObj('attribute', {
+            _characterid: obj.id,
+            _type: "attribute",
+            name: "gametype",
+            current: 'rgs2'
         });
     });
 });
@@ -539,7 +573,7 @@ on('chat:message', (msg) => {
             _type: "page",
             name: "Playmats"
         })[0];
-        log(page);
+        log(page.id);
         let campaign = findObjs({
             _type: "campaign"
         })[0];

@@ -528,6 +528,12 @@ on('ready', function() { //this makes it not happen whenever the api server is s
            action: "!wyrd --@{character_name} --1 --stun",
            istokenaction: true
         });
+        createObj('attribute', {
+            _characterid: obj.id,
+            _type: "attribute",
+            name: "gametype",
+            current: 'rgs2'
+        });
     });
 });
 
